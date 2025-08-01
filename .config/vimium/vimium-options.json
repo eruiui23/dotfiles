@@ -1,0 +1,6 @@
+{
+  "keyMappings": "map K previousTab\nmap J nextTab",
+  "scrollStepSize": 200,
+  "settingsVersion": "2.3",
+  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n/* linkhint boxes */\nbackground: #0ECCA0;\nborder: 1px solid #0a6b5b;\n}\n\ndiv > .vimiumHintMarker span {\n/* linkhint text */\ncolor: black;\nfont-weight: 5px;\nfont-size: 12px;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n}"
+}
