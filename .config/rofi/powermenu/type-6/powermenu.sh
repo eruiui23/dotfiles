@@ -19,11 +19,11 @@ uptime="`uptime -p | sed -e 's/up //g'`"
 host=`hostname`
 
 # Options
-hibernate=''
+# hibernate=''
 shutdown=''
 reboot=''
 lock=''
-suspend=''
+# suspend=''
 logout=''
 yes=''
 no=''
@@ -56,7 +56,8 @@ confirm_exit() {
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$lock\n$suspend\n$logout\n$hibernate\n$reboot\n$shutdown" | rofi_cmd
+	# echo -e "$lock\n$suspend\n$logout\n$hibernate\n$reboot\n$shutdown" | rofi_cmd
+	echo -e "$lock\n$logout\n$reboot\n$shutdown" | rofi_cmd
 }
 
 # Execute Command
@@ -67,12 +68,12 @@ run_cmd() {
 			systemctl poweroff
 		elif [[ $1 == '--reboot' ]]; then
 			systemctl reboot
-		elif [[ $1 == '--hibernate' ]]; then
-			systemctl hibernate
-		elif [[ $1 == '--suspend' ]]; then
-			mpc -q pause
-			amixer set Master mute
-			systemctl suspend
+		# elif [[ $1 == '--hibernate' ]]; then
+		# 	systemctl hibernate
+		# elif [[ $1 == '--suspend' ]]; then
+		# 	mpc -q pause
+		# 	amixer set Master mute
+		# 	systemctl suspend
 		elif [[ $1 == '--logout' ]]; then
 			if [[ "$DESKTOP_SESSION" == 'openbox' ]]; then
 				openbox --exit
@@ -98,19 +99,19 @@ case ${chosen} in
     $reboot)
 		run_cmd --reboot
         ;;
-    $hibernate)
-		run_cmd --hibernate
-        ;;
+    # $hibernate)
+	# 	run_cmd --hibernate
+    #     ;;
     $lock)
-		if [[ -x '/usr/bin/betterlockscreen' ]]; then
+		if [[ -x '/usr/local/bin/betterlockscreen' ]]; then
 			betterlockscreen -l
 		elif [[ -x '/usr/bin/i3lock' ]]; then
 			i3lock
 		fi
         ;;
-    $suspend)
-		run_cmd --suspend
-        ;;
+    # $suspend)
+	# 	run_cmd --suspend
+    #     ;;
     $logout)
 		run_cmd --logout
         ;;
