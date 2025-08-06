@@ -60,7 +60,7 @@ bindsym $mod+q kill
 
 # rofi stuff
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-4/launcher.sh
-bindsym $mod+o exec --no-startup-id /home/yucandy16/.config/rofi/powermenu/type-4/powermenu.sh
+bindsym $mod+o exec --no-startup-id /home/yucandy16/.config/rofi/powermenu/type-6/powermenu.sh
 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
@@ -254,6 +254,8 @@ exec --no-startup-id xapp-status-applet
 # Start Fcitx japanese
 exec --no-startup-id fcitx -d
 
+# set keyboard repeat delay and rate
+exec_always xset r rate 200 40
 
 
 
