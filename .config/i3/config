@@ -258,7 +258,8 @@ exec --no-startup-id fcitx -d
 # set keyboard repeat delay and rate
 exec_always xset r rate 200 40
 
-
+# login buat timeshift dan teman teman
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 
 
