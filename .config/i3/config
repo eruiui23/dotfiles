@@ -54,14 +54,19 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec kitty 
+
 
 # kill focused window
 bindsym $mod+q kill
 
 # rofi stuff
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-4/launcher.sh
-bindsym $mod+o exec --no-startup-id /home/yucandy16/.config/rofi/powermenu/type-6/powermenu.sh
+bindsym $mod+p exec --no-startup-id /home/yucandy16/.config/rofi/powermenu/type-6/powermenu.sh
+
+# alt tab
+bindsym mod1+Tab workspace back_and_forth
 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
@@ -154,7 +159,7 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
-workspace_auto_back_and_forth no 
+workspace_auto_back_and_forth yes 
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -221,6 +226,8 @@ gaps inner 8px
 
 # set touchpad biar ga kebalik
 exec --no-startup-id xinput set-prop "SYNA2BA6:00 06CB:CE2D Touchpad" "libinput Natural Scrolling Enabled" 1
+exec --no-startup-id xinput set-prop "SYNA2BA6:00 06CB:CE2D Touchpad" "libinput Accel Speed" 0.5 
+
 
 # open picom
 exec_always --no-startup-id picom --experimental-backends --config ~/.config/picom/picom.conf
@@ -228,9 +235,12 @@ exec_always --no-startup-id picom --experimental-backends --config ~/.config/pic
 
 for_window [class="^.*"] border pixel 0
 
-# open browser and file
-bindsym $mod+u exec flatpak run app.zen_browser.zen
+# open app, browser and file
+# bindsym $mod+u  --no-startup-id i3-msg "workspace $ws3"; exec sleep 5 && flatpak run app.zen_browser.zen
+
+bindsym $mod+u exec --no-startup-id flatpak run app.zen_browser.zen
 bindsym $mod+i exec nemo
+bindsym $mod+o exec anki; exec sh -c 'XAPP_FORCE_GTKWINDOW_ICON="/home/yucandy16/Downloads/jisho.png" firefox --class WebApp-Jisho6611 --name WebApp-Jisho6611 --profile /home/yucandy16/.local/share/ice/firefox/Jisho6611 --no-remote "https://jisho.org/"'
 
 #flameshot
 bindsym Print exec --no-startup-id flameshot screen 
@@ -261,8 +271,11 @@ exec_always xset r rate 200 40
 # login buat timeshift dan teman teman
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
+# floating window
+for_window [class="Pavucontrol"] floating enable, move position center, resize set 800 600
 
-
+# set capslock to ctrl
+exec --no-startup-id setxkbmap -option ctrl:nocaps
 
 
 
