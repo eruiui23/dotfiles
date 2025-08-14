@@ -221,7 +221,7 @@ exec --no-startup-id xrandr  --output HDMI-1-0 --mode 1920x1080 --rate 180.00
 
 # gaps
 # Inner gaps for all windows: space between two adjacent windows (or split containers).
-gaps inner 0px
+gaps inner 8px 
 
 
 # set touchpad biar ga kebalik
