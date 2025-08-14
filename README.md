@@ -1,5 +1,4 @@
-# dotfiles
-My dotfiles
+my dotfiles
 
 ![hehe](https://noonasoverforks.com/wp-content/uploads/2015/07/oh-my-ghost-3-4.jpg?w=1140)
 
