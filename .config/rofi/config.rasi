@@ -103,6 +103,9 @@ configuration {
       delay:  0;
     }
 
+me-select-entry: "MousePrimary";
+	me-accept-entry: "!MousePrimary";
+
 	/*---------- Keybindings ----------*/
 /*
 	kb-primary-paste: "Control+V,Shift+Insert";
@@ -175,7 +178,7 @@ configuration {
 	ml-row-up: "ScrollUp";
 	ml-row-down: "ScrollDown";
 	me-select-entry: "MousePrimary";
-	me-accept-entry: "MouseDPrimary";
+	me-accept-entry: "!MousePrimary";
 	me-accept-custom: "Control+MouseDPrimary";
 */
 }

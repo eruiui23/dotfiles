@@ -221,7 +221,7 @@ exec --no-startup-id xrandr  --output HDMI-1-0 --mode 1920x1080 --rate 180.00
 
 # gaps
 # Inner gaps for all windows: space between two adjacent windows (or split containers).
-gaps inner 8px
+gaps inner 0px
 
 
 # set touchpad biar ga kebalik
@@ -249,7 +249,8 @@ bindsym mod1+z exec --no-startup-id /home/yucandy16/scripts/flameshotfocus.sh
 # bindsym Print exec --no-startup-id bash -c "focused_window_id=$(xdotool getactivewindow); flameshot gui; sleep 0.2; xdotool windowactivate $focused_window_id"
 exec --no-startup-id parcellite &
 exec --no-startup-id flameshot &
-exec --no-startup-id dunst &
+# exec --no-startup-id dunst &
+exec_always --no-startup-id dunst -conf ~/.config/dunst/dunstrc 
 
 #brightness
 # Increase brightness
@@ -266,7 +267,7 @@ exec --no-startup-id xapp-status-applet
 exec --no-startup-id fcitx -d
 
 # set keyboard repeat delay and rate
-exec_always xset r rate 200 40
+exec_always xset r rate 250 40
 
 # login buat timeshift dan teman teman
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
