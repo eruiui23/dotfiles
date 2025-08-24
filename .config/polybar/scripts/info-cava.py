@@ -7,9 +7,12 @@ import sys
 import tempfile
 
 if len(sys.argv) > 1 and sys.argv[1] == '--subproc':
-    ramp_list = [' ', '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█']
+    # ramp_list = [' ', '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█']
+    ramp_list = ['⠀', '⠄', '⠆', '⠇', '⡇', '⡧', '⡷', '⡿', '⣿']
+    # ramp_list = ['⠀', '⠁', '⠃', '⠇', '⡇', '⡏', '⡟', '⡿', '⣿']
     ramp_list.extend(
-        f'%{{F#{color.strip(" #")}}}█%{{F-}}'
+        f'%{{F#{color.strip(" #")}}}⣿%{{F-}}'
+        # f'%{{F#{color.strip(" #")}}}█%{{F-}}'
         for color in sys.argv[2].split(',')
         if color
     )

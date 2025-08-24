@@ -18,7 +18,8 @@ set $mod Mod4
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 # font pango:DejaVu Sans Mono 8
-font pango:JetBrains Mono 10
+# font pango:JetBrains Mono 10
+font pango:JetBrains Mono 12
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -30,14 +31,14 @@ exec --no-startup-id dex --autostart --environment i3
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen 
+exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
 # Load nitrogen wallpaper
-exec_always --no-startup-id nitrogen --restore
+exec --no-startup-id nitrogen --restore
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -239,8 +240,9 @@ for_window [class="^.*"] border pixel 0
 # bindsym $mod+u  --no-startup-id i3-msg "workspace $ws3"; exec sleep 5 && flatpak run app.zen_browser.zen
 
 bindsym $mod+u exec --no-startup-id flatpak run app.zen_browser.zen
-bindsym $mod+i exec nemo
-bindsym $mod+o exec anki; exec sh -c 'XAPP_FORCE_GTKWINDOW_ICON="/home/yucandy16/Downloads/jisho.png" firefox --class WebApp-Jisho6611 --name WebApp-Jisho6611 --profile /home/yucandy16/.local/share/ice/firefox/Jisho6611 --no-remote "https://jisho.org/"'
+bindsym $mod+y exec nemo
+bindsym $mod+i exec spotify
+bindsym $mod+o exec anki;exec sleep 1; exec sh -c 'XAPP_FORCE_GTKWINDOW_ICON="/home/yucandy16/Downloads/jisho.png" firefox --class WebApp-Jisho6611 --name WebApp-Jisho6611 --profile /home/yucandy16/.local/share/ice/firefox/Jisho6611 --no-remote "https://jisho.org/"'
 
 #flameshot
 bindsym Print exec --no-startup-id flameshot screen 
@@ -278,7 +280,9 @@ for_window [class="Pavucontrol"] floating enable, move position center, resize s
 # set capslock to ctrl
 exec --no-startup-id setxkbmap -option ctrl:nocaps
 
+exec --no-startup-id caffeine
 
+exec --no-startup-id syncthing
 
 
 
