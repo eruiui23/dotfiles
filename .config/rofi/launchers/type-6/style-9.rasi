@@ -25,7 +25,8 @@ configuration {
     background:                  #131D1F;
     background-alt:              #183A43;
     foreground:                  #FFFFFF;
-    selected:                    #649094;
+    // selected:                    #649094;
+    selected:                    #395253ff;
     active:                      #E9CC9D;
     urgent:                      #FEA861;
 }
@@ -37,7 +38,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       1000px;
+    width:                       880px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -60,7 +61,7 @@ mainbox {
 imagebox {
     padding:                     20px;
     background-color:            transparent;
-    background-image:            url("~/.config/rofi/images/i.jpg", height);
+    background-image:            url("~/.config/rofi/images/yellow1.jpg", height);
     orientation:                 vertical;
     children:                    [ "inputbar", "dummy", "mode-switcher" ];
 }

@@ -18,8 +18,8 @@ set $mod Mod4
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 # font pango:DejaVu Sans Mono 8
-# font pango:JetBrains Mono 10
-font pango:JetBrains Mono 12
+font pango:JetBrains Mono 10
+# font pango:JetBrains Mono 12
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -56,14 +56,14 @@ tiling_drag modifier titlebar
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec kitty 
+bindsym $mod+Return exec --no-startup-id kitty 
 
 
 # kill focused window
 bindsym $mod+q kill
 
 # rofi stuff
-bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-4/launcher.sh
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-6/launcher.sh
 bindsym $mod+p exec --no-startup-id /home/yucandy16/.config/rofi/powermenu/type-6/powermenu.sh
 
 # alt tab
@@ -208,6 +208,11 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# COLOR
+client.focused          #14282f #14282f #e8e8e8 #2cdeb4 #14282f 
+client.unfocused       #14282f #14282f #bababa #2cdeb4 #14282f  
+client.focused_inactive #14282f #14282f #bababa #2cdeb4 #14282f 
+
 # Start i3bar to display a workspace bar (plus the system information i3statuss
 # finds out, if available)
 # bar {
@@ -239,10 +244,19 @@ for_window [class="^.*"] border pixel 0
 # open app, browser and file
 # bindsym $mod+u  --no-startup-id i3-msg "workspace $ws3"; exec sleep 5 && flatpak run app.zen_browser.zen
 
-bindsym $mod+u exec --no-startup-id flatpak run app.zen_browser.zen
-bindsym $mod+y exec nemo
-bindsym $mod+i exec spotify
-bindsym $mod+o exec anki;exec sleep 1; exec sh -c 'XAPP_FORCE_GTKWINDOW_ICON="/home/yucandy16/Downloads/jisho.png" firefox --class WebApp-Jisho6611 --name WebApp-Jisho6611 --profile /home/yucandy16/.local/share/ice/firefox/Jisho6611 --no-remote "https://jisho.org/"'
+bindsym $mod+u exec --no-startup-id /home/yucandy16/.local/share/zen/zen
+bindsym $mod+y exec --no-startup-id nemo
+bindsym $mod+i exec --no-startup-id spotify
+bindsym $mod+c exec --no-startup-id code
+bindsym $mod+o exec anki;exec sleep 5; exec sh -c 'XAPP_FORCE_GTKWINDOW_ICON="/home/yucandy16/Downloads/jisho.png" firefox --class WebApp-Jisho6611 --name WebApp-Jisho6611 --profile /home/yucandy16/.local/share/ice/firefox/Jisho6611 --no-remote "https://jisho.org/"'
+# bindsym $mod+o exec --no-startup-id sh -c 'anki; spotify'
+
+# Assign Workspaces:
+assign [class="zen"] $ws3
+assign [class="Code"] $ws4
+assign [class="Spotify"] $ws10
+assign [class="WebApp-Jisho6611"] $ws9
+assign [class="Anki"] $ws9
 
 #flameshot
 bindsym Print exec --no-startup-id flameshot screen 
@@ -261,7 +275,7 @@ bindsym $mod+F6 exec --no-startup-id brightnessctl set +5%
 # Decrease brightness
 bindsym $mod+F5 exec --no-startup-id brightnessctl set 5%-
 
-exec_always --no-startup-id /home/yucandy16/i3-alternating-layout/alternating_layouts.py
+# exec_always --no-startup-id /home/yucandy16/i3-alternating-layout/alternating_layouts.py
 
 exec --no-startup-id xapp-status-applet
 

@@ -44,9 +44,9 @@
     --font-weight: 400; /* 200 : 900 */
     --line-height: 1.2;
 
-    --font-size-lyrics: 1.5em; /* 1.5em (default) */
+    --font-size-lyrics: 1.2em; /* 1.5em (default) */
 
-    --font-family-header: "JetBrains Mono", monospace;
+    --font-family-header: "JetBrains Mono", monospace, ;
     --font-size-multiplier-header: 4;
 
     --display-card-image: block; /* none | block */
@@ -700,12 +700,22 @@ form .main-topBar-searchBar:placeholder-shown {
 .lyrics-lyrics-contentContainer {
     justify-content: start;
 }
-.lyrics-lyrics-container,
+/* .lyrics-lyrics-container,
 .main-nowPlayingView-section {
     --lyrics-color-active: var(--spice-text) !important;
     --lyrics-color-inactive: var(--spice-subtext) !important;
     --lyrics-color-passed: var(--spice-subtext) !important;
     --lyrics-color-messaging: var(--spice-subtext) !important;
+} */
+.lyrics-lyrics-container,
+.main-nowPlayingView-section {
+    --lyrics-color-active: #ffffff !important;
+    --lyrics-color-inactive: #ffffff !important;
+    --lyrics-color-passed: #ffffff !important;
+    --lyrics-color-messaging: #ffffff !important;
+}
+.lyrics-active::before {
+    content: none !important; /* Ini akan menghilangkan konten ">>" */
 }
 .lyrics-lyricsContent-lyric {
     opacity: 0.3;
@@ -717,8 +727,10 @@ form .main-topBar-searchBar:placeholder-shown {
     transition: none;
 }
 .lyrics-lyricsContent-lyric.lyrics-lyricsContent-active:not(:empty) {
-    background-color: var(--lyrics-color-background);
+    /* background-color: var(--lyrics-color-background); */
+    background-color: #2ed1ab;
     color: var(--spice-text);
+    border-radius: 10px !important;
     opacity: 1;
     transition: none;
 }
@@ -792,10 +804,26 @@ form .main-topBar-searchBar:placeholder-shown {
     /* transition-duration: unset; */
 }
 
+.lyrics-active {
+    background-color: rgba(255, 255, 255, 0.1) !important; /* Menambahkan highlight background */
+    border-radius: 8px !important; /* Memberi sudut melengkung */
+}
+
+/* Teks lirik yang sedang aktif */
+.lyrics-active .lyrics-line {
+    color: #1ed760 !important; /* Mengubah warna teks menjadi hijau Spotify */
+    font-size: 18px; /* Mengubah ukuran font */
+    font-weight: bold; /* Membuat teks tebal */
+}
+
+a {
+    text-decoration: none;
+}
+
 /* cover art */
 .main-nowPlayingWidget-coverArt .cover-art {
-    height: 32px !important;
-    width: 32px !important;
+    height: 64px !important;
+    width: 64px !important;
     display: block;
 }
 
