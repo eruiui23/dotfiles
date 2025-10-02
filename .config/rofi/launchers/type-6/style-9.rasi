@@ -27,8 +27,8 @@ configuration {
     foreground:                  #FFFFFF;
     // selected:                    #649094;
     selected:                    #395253ff;
-    active:                      #E9CC9D;
-    urgent:                      #FEA861;
+    active:                      #232323fc;
+    urgent:                      #f3b84aff;
 }
 
 /*****----- Main Window -----*****/
@@ -61,7 +61,7 @@ mainbox {
 imagebox {
     padding:                     20px;
     background-color:            transparent;
-    background-image:            url("~/.config/rofi/images/yellow1.jpg", height);
+    background-image:            url("~/.config/rofi/images/yellow6.jpg", height);
     orientation:                 vertical;
     children:                    [ "inputbar", "dummy", "mode-switcher" ];
 }

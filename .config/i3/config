@@ -11,6 +11,13 @@
 
 set $mod Mod4
 
+# export QT_QPA_PLATFORMTHEME=gtk3
+# export QT_QPA_PLATFORMTHEME=qt5ct   # (untuk Qt5)
+# export QT_QPA_PLATFORMTHEME=qt6ct   # (untuk Qt6)
+
+exec_always --no-startup-id export QT_QPA_PLATFORMTHEME=qt6ct
+exec_always --no-startup-id export QT_FILE_SELECTORS=gtk 
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # font pango:monospace 8
@@ -38,7 +45,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l --nof
 exec --no-startup-id nm-applet
 
 # Load nitrogen wallpaper
-exec --no-startup-id nitrogen --restore
+# exec --no-startup-id nitrogen --restore
+exec_always --no-startup-id sleep 2 && nitrogen --restore
+
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -60,14 +69,17 @@ bindsym $mod+Return exec --no-startup-id kitty
 
 
 # kill focused window
-bindsym $mod+q kill
+bindsym $mod+Escape kill
 
 # rofi stuff
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-6/launcher.sh
+bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/type-6/launcher_window.sh
 bindsym $mod+p exec --no-startup-id /home/yucandy16/.config/rofi/powermenu/type-6/powermenu.sh
 
 # alt tab
-bindsym mod1+Tab workspace back_and_forth
+bindsym $mod+Tab workspace back_and_forth
+
+
 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
@@ -79,6 +91,7 @@ bindsym mod1+Tab workspace back_and_forth
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+bindsym mod1+Tab focus right
 bindsym $mod+h focus left
 
 # bindsym $mod+j focus left
@@ -127,13 +140,13 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+z focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -147,6 +160,17 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+
+# set $ws1 "一"
+# set $ws2 "二"
+# set $ws3 "三"
+# set $ws4 "四"
+# set $ws5 "五"
+# set $ws6 "六"
+# set $ws7 "七"
+# set $ws8 "八"
+# set $ws9 "九"
+# set $ws10 "十"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -210,8 +234,9 @@ bindsym $mod+r mode "resize"
 
 # COLOR
 client.focused          #14282f #14282f #e8e8e8 #2cdeb4 #14282f 
-client.unfocused       #14282f #14282f #bababa #2cdeb4 #14282f  
+client.unfocused       #14282f #222222 #bababa #2cdeb4 #14282f  
 client.focused_inactive #14282f #14282f #bababa #2cdeb4 #14282f 
+hide_edge_borders smart 
 
 # Start i3bar to display a workspace bar (plus the system information i3statuss
 # finds out, if available)
@@ -232,14 +257,16 @@ gaps inner 8px
 
 # set touchpad biar ga kebalik
 exec --no-startup-id xinput set-prop "SYNA2BA6:00 06CB:CE2D Touchpad" "libinput Natural Scrolling Enabled" 1
-exec --no-startup-id xinput set-prop "SYNA2BA6:00 06CB:CE2D Touchpad" "libinput Accel Speed" 0.5 
+exec_always --no-startup-id xinput set-prop "SYNA2BA6:00 06CB:CE2D Touchpad" "libinput Accel Speed" 0.2 
 
 
 # open picom
 exec_always --no-startup-id picom --experimental-backends --config ~/.config/picom/picom.conf
 
-
-for_window [class="^.*"] border pixel 0
+# border
+# for_window [class="^.*"] border pixel 5
+for_window [class="^.*"] border none
+# for_window [class=""] border none 
 
 # open app, browser and file
 # bindsym $mod+u  --no-startup-id i3-msg "workspace $ws3"; exec sleep 5 && flatpak run app.zen_browser.zen
@@ -248,8 +275,10 @@ bindsym $mod+u exec --no-startup-id /home/yucandy16/.local/share/zen/zen
 bindsym $mod+y exec --no-startup-id nemo
 bindsym $mod+i exec --no-startup-id spotify
 bindsym $mod+c exec --no-startup-id code
-bindsym $mod+o exec anki;exec sleep 5; exec sh -c 'XAPP_FORCE_GTKWINDOW_ICON="/home/yucandy16/Downloads/jisho.png" firefox --class WebApp-Jisho6611 --name WebApp-Jisho6611 --profile /home/yucandy16/.local/share/ice/firefox/Jisho6611 --no-remote "https://jisho.org/"'
-# bindsym $mod+o exec --no-startup-id sh -c 'anki; spotify'
+# bindsym $mod+o exec anki; exec sleep 5; exec sh -c 'XAPP_FORCE_GTKWINDOW_ICON="/home/yucandy16/Downloads/jisho.png" firefox --class WebApp-Jisho6611 --name WebApp-Jisho6611 --profile /home/yucandy16/.local/share/ice/firefox/Jisho6611 --no-remote "https://jisho.org/"'
+bindsym $mod+o exec ~/scripts/launch_jisho.sh  
+
+bindsym $mod+shift+o exec ~/scripts/start.sh  
 
 # Assign Workspaces:
 assign [class="zen"] $ws3
@@ -257,6 +286,8 @@ assign [class="Code"] $ws4
 assign [class="Spotify"] $ws10
 assign [class="WebApp-Jisho6611"] $ws9
 assign [class="Anki"] $ws9
+assign [class="Nemo"] $ws2
+assign [class="discord"] $ws8
 
 #flameshot
 bindsym Print exec --no-startup-id flameshot screen 
@@ -294,9 +325,13 @@ for_window [class="Pavucontrol"] floating enable, move position center, resize s
 # set capslock to ctrl
 exec --no-startup-id setxkbmap -option ctrl:nocaps
 
+exec --no-startup-id xmodmap -e "keycode 62 = Super_R" -e "remove shift = Shift_R" -e "add mod4 = Super_R"
+
+
 exec --no-startup-id caffeine
 
 exec --no-startup-id syncthing
+
 
 
 
