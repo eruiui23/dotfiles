@@ -7,3 +7,6 @@ to backup :
 2. `cd dotfiles`
 3. `stow .`
 4. git add commit and push
+
+### 15/10/25 set up
+<img width="1916" height="1079" alt="image" src="https://github.com/user-attachments/assets/9d9c3fd0-1cea-4bd9-8bb2-84a4c0fb0bb2" />
