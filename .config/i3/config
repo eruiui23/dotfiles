@@ -15,8 +15,8 @@ set $mod Mod4
 # export QT_QPA_PLATFORMTHEME=qt5ct   # (untuk Qt5)
 # export QT_QPA_PLATFORMTHEME=qt6ct   # (untuk Qt6)
 
-exec_always --no-startup-id export QT_QPA_PLATFORMTHEME=qt6ct
-exec_always --no-startup-id export QT_FILE_SELECTORS=gtk 
+# exec_always --no-startup-id export QT_QPA_PLATFORMTHEME=qt6ct
+# exec_always --no-startup-id export QT_FILE_SELECTORS=gtk 
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -46,7 +46,7 @@ exec --no-startup-id nm-applet
 
 # Load nitrogen wallpaper
 # exec --no-startup-id nitrogen --restore
-exec_always --no-startup-id sleep 2 && nitrogen --restore
+exec_always --no-startup-id sleep 0.5 && nitrogen --restore
 
 
 # Use pactl to adjust volume in PulseAudio.
@@ -67,7 +67,7 @@ tiling_drag modifier titlebar
 # bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec --no-startup-id kitty 
 
-
+for_window [class="kitty"] move position center
 # kill focused window
 bindsym $mod+Escape kill
 
@@ -78,7 +78,8 @@ bindsym $mod+p exec --no-startup-id /home/yucandy16/.config/rofi/powermenu/type-
 
 # alt tab
 bindsym $mod+Tab workspace back_and_forth
-
+bindsym $mod+control+l workspace next
+bindsym $mod+control+h workspace prev
 
 
 # A more modern dmenu replacement is rofi:
@@ -92,6 +93,7 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 bindsym mod1+Tab focus right
+bindsym mod1+Shift+Tab focus left
 bindsym $mod+h focus left
 
 # bindsym $mod+j focus left
@@ -132,8 +134,10 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+# bindsym $mod+s layout stacking
+bindsym $mod+s floating toggle
 bindsym $mod+w layout tabbed
+# bindsym $mod+w exec "i3-msg focus parent && i3-msg layout tabbed"
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -184,7 +188,7 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
-workspace_auto_back_and_forth yes 
+# workspace_auto_back_and_forth yes 
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -233,7 +237,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # COLOR
-client.focused          #14282f #14282f #e8e8e8 #2cdeb4 #14282f 
+# client.focused          #14282f #14282f #e8e8e8 #2cdeb4 #347568
+client.focused          #14282f #14282f #e8e8e8 #2cdeb4 #14282f
 client.unfocused       #14282f #222222 #bababa #2cdeb4 #14282f  
 client.focused_inactive #14282f #14282f #bababa #2cdeb4 #14282f 
 hide_edge_borders smart 
@@ -243,6 +248,12 @@ hide_edge_borders smart
 # bar {
 #        status_command i3status
 #} hehe
+
+# -------------------------------------- border
+# for_window [class="^.*"] border pixel 5
+for_window [class="^.*"] border none
+# for_window [class="kitty"] border pixel 5 
+# for_window [class=""] border none 
 
 # Load polybar
 exec_always --no-startup-id sh -c "pkill polybar; polybar --reload -c $HOME/.config/polybar/config.ini &"
@@ -263,10 +274,6 @@ exec_always --no-startup-id xinput set-prop "SYNA2BA6:00 06CB:CE2D Touchpad" "li
 # open picom
 exec_always --no-startup-id picom --experimental-backends --config ~/.config/picom/picom.conf
 
-# border
-# for_window [class="^.*"] border pixel 5
-for_window [class="^.*"] border none
-# for_window [class=""] border none 
 
 # open app, browser and file
 # bindsym $mod+u  --no-startup-id i3-msg "workspace $ws3"; exec sleep 5 && flatpak run app.zen_browser.zen
@@ -278,7 +285,9 @@ bindsym $mod+c exec --no-startup-id code
 # bindsym $mod+o exec anki; exec sleep 5; exec sh -c 'XAPP_FORCE_GTKWINDOW_ICON="/home/yucandy16/Downloads/jisho.png" firefox --class WebApp-Jisho6611 --name WebApp-Jisho6611 --profile /home/yucandy16/.local/share/ice/firefox/Jisho6611 --no-remote "https://jisho.org/"'
 bindsym $mod+o exec ~/scripts/launch_jisho.sh  
 
-bindsym $mod+shift+o exec ~/scripts/start.sh  
+# bindsym $mod+shift+o exec ~/scripts/start.sh  
+# ----------------------------------------- Startup script
+exec --no-startup-id ~/scripts/start.sh  
 
 # Assign Workspaces:
 assign [class="zen"] $ws3
@@ -288,6 +297,12 @@ assign [class="WebApp-Jisho6611"] $ws9
 assign [class="Anki"] $ws9
 assign [class="Nemo"] $ws2
 assign [class="discord"] $ws8
+assign [class="obsidian"] $ws5
+
+# -------------------------------------- setting window (floating, position, etc)
+# for_window [class="Galendae"] floating enable, resize set 600 400, move absolute position 660 45
+for_window [class="Cheese"] floating enable, resize set 1200 800, move position center
+# for_window [instance="Pycalendar.py"] floating enable
 
 #flameshot
 bindsym Print exec --no-startup-id flameshot screen 
@@ -306,7 +321,9 @@ bindsym $mod+F6 exec --no-startup-id brightnessctl set +5%
 # Decrease brightness
 bindsym $mod+F5 exec --no-startup-id brightnessctl set 5%-
 
-# exec_always --no-startup-id /home/yucandy16/i3-alternating-layout/alternating_layouts.py
+
+
+exec_always --no-startup-id /home/yucandy16/i3-alternating-layout/alternating_layouts.py
 
 exec --no-startup-id xapp-status-applet
 
@@ -314,18 +331,20 @@ exec --no-startup-id xapp-status-applet
 exec --no-startup-id fcitx -d
 
 # set keyboard repeat delay and rate
-exec_always xset r rate 250 40
+exec_always --no-startup-id xset r rate 250 40
 
 # login buat timeshift dan teman teman
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 # floating window
-for_window [class="Pavucontrol"] floating enable, move position center, resize set 800 600
+for_window [class="Pavucontrol"] floating enable, move absolute position 1060 45, resize set 800 600
+
+# ------------------------ Keybind ------------------------------#
 
 # set capslock to ctrl
 exec --no-startup-id setxkbmap -option ctrl:nocaps
-
-exec --no-startup-id xmodmap -e "keycode 62 = Super_R" -e "remove shift = Shift_R" -e "add mod4 = Super_R"
+# set right shift to meta/super
+exec_always --no-startup-id xmodmap -e "keycode 62 = Super_R" -e "remove shift = Shift_R" -e "add mod4 = Super_R"
 
 
 exec --no-startup-id caffeine
