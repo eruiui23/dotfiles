@@ -106,18 +106,18 @@ source $ZSH/oh-my-zsh.sh
 
 # ------------------ functions -------------------------
 # Custom functions for nala/apt replacement
-# apt() {
-#   command nala "$@"
-# }
+apt() {
+  command nala "$@"
+}
 
-# sudo() {
-#   if [ "$1" = "apt" ]; then
-#     shift
-#     command sudo nala "$@"
-#   else
-#     command sudo "$@"
-#   fi
-# }
+sudo() {
+  if [ "$1" = "apt" ]; then
+    shift
+    command sudo nala "$@"
+  else
+    command sudo "$@"
+  fi
+}
 
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -133,6 +133,10 @@ export editor='vim'
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/home/yucandy16/.nvm/versions/node/v22.19.0/bin/npm:$PATH"
 export PATH="/home/yucandy16/.nvm/versions/node/v22.19.0/bin/node:$PATH"
-
-
 export PATH=$PATH:/home/yucandy16/.spicetify
+export PATH="$HOME/scripts:$PATH"
+export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+
+
