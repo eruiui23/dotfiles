@@ -11,6 +11,10 @@
 
 set $mod Mod4
 
+exec_always --no-startup-id stalonetray --geometry 3x1+980+0 --dockapp-mode simple --window-class "StalonetrayToggle"
+# Aturan untuk Stalonetray
+for_window [class="StalonetrayToggle"] floating enable, border pixel 0, sticky enable, no_focus, move to workspace number 9
+# exec --no-startup-id bash -c "mpv --fs --no-border --volume=100 --really-quiet Videos/chisa.mp4" 
 # export QT_QPA_PLATFORMTHEME=gtk3
 # export QT_QPA_PLATFORMTHEME=qt5ct   # (untuk Qt5)
 # export QT_QPA_PLATFORMTHEME=qt6ct   # (untuk Qt6)
@@ -46,6 +50,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l --nof
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+exec --no-startup-id ffplay -nodisp -autoexit Music/chisa.mp3          
+
 # Load nitrogen wallpaper
 # exec --no-startup-id nitrogen --restore
 exec_always --no-startup-id sleep 0.5 && nitrogen --restore
@@ -77,9 +83,10 @@ for_window [class="kitty"] move position center
 # kill focused window
 bindsym $mod+Escape kill
 
-# rofi stuff
-bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-6/launcher.sh
-bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/type-6/launcher_window.sh
+# ----------------------------------------------------- Rofi
+# pake convert -strip input.png output.png buat bikin imagenya load cepet
+bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/type-6/launcher.sh
+# bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/type-6/launcher_window.sh
 bindsym $mod+p exec --no-startup-id /home/yucandy16/.config/rofi/powermenu/type-6/powermenu.sh
 
 # alt tab
@@ -149,10 +156,10 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+s focus mode_toggle
 
 # change focus between tiling / floating windows
-# bindsym $mod+space focus mode_toggle
+# bindsym $mod+space 
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -187,7 +194,7 @@ set $ws13 "13"
 # set $ws9 "九"
 # set $ws10 "十"
 
-# switch to workspace
+# switch to workspace (number)
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
@@ -202,8 +209,19 @@ bindsym $mod+control+1 workspace number $ws11
 bindsym $mod+control+2 workspace number $ws12
 bindsym $mod+control+3 workspace number $ws13
 
-# workspace_auto_back_and_forth yes 
+# switch to workspace (word)
+# bindsym $mod+z workspace number $ws1
+# bindsym $mod+x workspace number $ws2
+# bindsym $mod+c workspace number $ws3
+# bindsym $mod+a workspace number $ws4
+# bindsym $mod+s workspace number $ws5
+# bindsym $mod+d workspace number $ws6
+# bindsym $mod+q workspace number $ws7
+# bindsym $mod+w workspace number $ws8
+# bindsym $mod+e workspace number $ws9
+# bindsym $mod+control+z workspace number $ws10
 
+# workspace_auto_back_and_forth yes 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
@@ -224,7 +242,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -267,8 +285,8 @@ hide_edge_borders smart
 #} hehe
 
 # -------------------------------------- border
-for_window [class="^.*"] border pixel 4.5
-# for_window [class="^.*"] border none
+# for_window [class="^.*"] border pixel 4.5
+for_window [class="^.*"] border none
 # for_window [class="kitty"] border pixel 5 
 # for_window [class=""] border none 
 
@@ -282,11 +300,12 @@ exec_always --no-startup-id sh -c "pkill polybar; polybar --reload -c $HOME/.con
 # Inner gaps for all windows: space between two adjacent windows (or split containers).
 gaps inner 8px 
 # gaps outer 8px 
+bindsym $mod+g exec --no-startup-id ~/scripts/gaps.sh
 
 
 # set touchpad biar ga kebalik
 exec --no-startup-id xinput set-prop "SYNA2BA6:00 06CB:CE2D Touchpad" "libinput Natural Scrolling Enabled" 1
-exec_always --no-startup-id xinput set-prop "SYNA2BA6:00 06CB:CE2D Touchpad" "libinput Accel Speed" 0.3 
+exec_always --no-startup-id xinput set-prop "SYNA2BA6:00 06CB:CE2D Touchpad" "libinput Accel Speed" 0.2 
 
 
 # open picom
@@ -299,7 +318,7 @@ exec_always --no-startup-id picom --experimental-backends --config ~/.config/pic
 bindsym $mod+u exec --no-startup-id /home/yucandy16/.local/share/zen/zen
 bindsym $mod+y exec --no-startup-id nemo
 bindsym $mod+i exec --no-startup-id spotify
-bindsym $mod+c exec --no-startup-id code
+# bindsym $mod+c exec --no-startup-id code
 # bindsym $mod+o exec anki; exec sleep 5; exec sh -c 'XAPP_FORCE_GTKWINDOW_ICON="/home/yucandy16/Downloads/jisho.png" firefox --class WebApp-Jisho6611 --name WebApp-Jisho6611 --profile /home/yucandy16/.local/share/ice/firefox/Jisho6611 --no-remote "https://jisho.org/"'
 bindsym $mod+o exec ~/scripts/launch_jisho.sh  
 
@@ -311,8 +330,8 @@ exec --no-startup-id ~/scripts/start.sh
 assign [class="zen"] $ws3
 assign [class="Code"] $ws4
 assign [class="Spotify"] $ws10
-assign [class="WebApp-Jisho6611"] $ws8
-assign [class="Anki"] $ws8
+# assign [class="WebApp-Jisho6611"] $ws8
+# assign [class="Anki"] $ws8
 assign [class="Nemo"] $ws2
 assign [class="discord"] $ws9
 assign [class="WebApp-Whatsapp6689"] $ws9
@@ -329,8 +348,7 @@ for_window [class="fcitx5-config-qt"] floating enable, resize set  800 600, move
 for_window [class="Pavucontrol"] floating enable, move position center, resize set 800 600
 for_window [title="float-term"] floating enable, resize set  800 600, move position center
 
-
-#flameshot
+## -------------------------------------- screenshoot
 bindsym Print exec --no-startup-id flameshot screen 
 bindsym Control+Print exec --no-startup-id flameshot gui
 bindsym mod1+z exec --no-startup-id /home/yucandy16/scripts/flameshotfocus.sh
@@ -353,7 +371,7 @@ bindsym $mod+F5 exec --no-startup-id brightnessctl set 5%-
 
 
 # -------------------------------- autotiling
-exec_always --no-startup-id /home/yucandy16/i3-alternating-layout/alternating_layouts.py
+# exec_always --no-startup-id /home/yucandy16/i3-alternating-layout/alternating_layouts.py
 
 exec --no-startup-id xapp-status-applet
 

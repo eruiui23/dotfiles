@@ -103,7 +103,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
+bindkey -v
+export KEYTIMEOUT=1
 # ------------------ functions -------------------------
 # Custom functions for nala/apt replacement
 apt() {
@@ -135,8 +136,17 @@ export PATH="/home/yucandy16/.nvm/versions/node/v22.19.0/bin/npm:$PATH"
 export PATH="/home/yucandy16/.nvm/versions/node/v22.19.0/bin/node:$PATH"
 export PATH=$PATH:/home/yucandy16/.spicetify
 export PATH="$HOME/scripts:$PATH"
-export ANDROID_SDK_ROOT=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
-export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
 
+
+export NVM_DIR="$HOME/.nvm"
+
+lazy_nvm() {
+  unset -f node npm npx nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+}
+
+node() { lazy_nvm; node "$@"; }
+npm() { lazy_nvm; npm "$@"; }
+npx() { lazy_nvm; npx "$@"; }
+nvm() { lazy_nvm; nvm "$@"; }
