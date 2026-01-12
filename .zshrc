@@ -130,12 +130,14 @@ function y() {
 
 # Path setting
 export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/alsa-lib/libasound_module_pcm_pulse.so
-export editor='vim'
+# export editor='vim'
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/home/yucandy16/.nvm/versions/node/v22.19.0/bin/npm:$PATH"
 export PATH="/home/yucandy16/.nvm/versions/node/v22.19.0/bin/node:$PATH"
 export PATH=$PATH:/home/yucandy16/.spicetify
 export PATH="$HOME/scripts:$PATH"
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+export EDITOR="nvim"
 
 
 

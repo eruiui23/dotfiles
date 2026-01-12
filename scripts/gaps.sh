@@ -14,7 +14,7 @@ if [ "$STATE" = "off" ]; then
     i3-msg "gaps inner all set $TARGET_GAP" >/dev/null
     killall picom
     sleep 0.2
-    picom --corner-radius 10 &
+    picom --corner-radius 15 &
 
     # i3-msg "gaps outer all set $TARGET_GAP" >/dev/null
     echo "on" > "$STATE_FILE"

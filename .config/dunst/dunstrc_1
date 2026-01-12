@@ -30,7 +30,7 @@
     height = 100
 
     # Position the notification in the top right corner
-    origin = top-right
+    origin = center
 
     # Offset from the origin
     offset = 16x40
@@ -471,14 +471,3 @@
 #
 # vim: ft=cfg
 
-[osd_center]
-    appname = "osd"
-    geometry = "300x80-0-0"
-    origin = center
-    alignment = center
-    transparency = 0
-    padding = 20
-    # frame_width = 9
-    # frame_color = "#ffffff"
-    timeout = 2
-    highlight ="#FFFFFF"

@@ -1,0 +1,30 @@
+* {
+    font:                        "JetBrains Mono Nerd Font 10";
+}
+
+configuration {
+    fullscreen: true;
+    monitor: -1;
+}
+
+window {
+    width: 25%;
+    height: 20%;
+    location: center;
+    anchor: center;
+    transparency: "real";
+    border: 0px;
+    padding: 20px;
+}
+
+* {
+    background: #1e1e2e;
+    foreground: #ffffff;
+    font: "JetBrains Mono 20";
+}
+
+textbox {
+    padding: 0px;
+    text-halign: center;
+}
+

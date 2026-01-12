@@ -3,7 +3,7 @@
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
 [mgr]
-ratio          = [ 2, 4, 3 ]
+ratio          = [ 2, 4, 4 ]
 sort_by        = "alphabetical"
 sort_sensitive = false
 sort_reverse 	 = false
@@ -28,55 +28,58 @@ title_format   = "Yazi: {cwd}"
 # ueberzug_scale  = 1
 # ueberzug_offset = [ 0, 0, 0, 0 ]
 
-# [opener]
-# edit = [
-# 	{ run = '${EDITOR:-vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
-# 	{ run = 'code %*',    orphan = true, desc = "code",           for = "windows" },
-# 	{ run = 'code -w %*', block = true,  desc = "code (block)",   for = "windows" },
-# ]
-# open = [
-# 	{ run = 'xdg-open "$1"',                desc = "Open", for = "linux" },
-# 	{ run = 'open "$@"',                    desc = "Open", for = "macos" },
-# 	{ run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
-# 	{ run = 'termux-open "$1"',             desc = "Open", for = "android" },
-# ]
-# reveal = [
-# 	{ run = 'xdg-open "$(dirname "$1")"',           desc = "Reveal", for = "linux" },
-# 	{ run = 'open -R "$1"',                         desc = "Reveal", for = "macos" },
-# 	{ run = 'explorer /select,"%1"', orphan = true, desc = "Reveal", for = "windows" },
-# 	{ run = 'termux-open "$(dirname "$1")"',        desc = "Reveal", for = "android" },
-# 	{ run = '''clear; exiftool "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" },
-# ]
-# extract = [
-# 	{ run = 'ya pub extract --list "$@"', desc = "Extract here", for = "unix" },
-# 	{ run = 'ya pub extract --list %*',   desc = "Extract here", for = "windows" },
-# ]
-# play = [
-# 	{ run = 'mpv --force-window "$@"', orphan = true, for = "unix" },
-# 	{ run = 'mpv --force-window %*', orphan = true, for = "windows" },
-# 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
-# ]
+[opener]
+edit = [
+	{ run = '${EDITOR:-vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
+	{ run = 'code %*',    orphan = true, desc = "code",           for = "windows" },
+	{ run = 'code -w %*', block = true,  desc = "code (block)",   for = "windows" },
+]
+open = [
+	{ run = 'xdg-open "$1"',                desc = "Open", for = "linux" },
+	{ run = 'open "$@"',                    desc = "Open", for = "macos" },
+	{ run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
+	{ run = 'termux-open "$1"',             desc = "Open", for = "android" },
+]
+reveal = [
+	{ run = 'xdg-open "$(dirname "$1")"',           desc = "Reveal", for = "linux" },
+	{ run = 'open -R "$1"',                         desc = "Reveal", for = "macos" },
+	{ run = 'explorer /select,"%1"', orphan = true, desc = "Reveal", for = "windows" },
+	{ run = 'termux-open "$(dirname "$1")"',        desc = "Reveal", for = "android" },
+	{ run = '''clear; exiftool "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" },
+]
+extract = [
+	{ run = 'ya pub extract --list "$@"', desc = "Extract here", for = "unix" },
+	{ run = 'ya pub extract --list %*',   desc = "Extract here", for = "windows" },
+]
+play = [
+	{ run = 'mpv --force-window "$@"', orphan = true, for = "unix" },
+	{ run = 'mpv --force-window %*', orphan = true, for = "windows" },
+	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
+]
+folder = []
+directory = []
 
-# [open]
-# rules = [
-# 	# Folder
-# 	{ name = "*/", use = [ "edit", "open", "reveal" ] },
-# 	# Text
-# 	{ mime = "text/*", use = [ "edit", "reveal" ] },
-# 	# Image
-# 	{ mime = "image/*", use = [ "open", "reveal" ] },
-# 	# Media
-# 	{ mime = "{audio,video}/*", use = [ "play", "reveal" ] },
-# 	# Archive
-# 	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", use = [ "extract", "reveal" ] },
-# 	# JSON
-# 	{ mime = "application/{json,ndjson}", use = [ "edit", "reveal" ] },
-# 	{ mime = "*/javascript", use = [ "edit", "reveal" ] },
-# 	# Empty file
-# 	{ mime = "inode/empty", use = [ "edit", "reveal" ] },
-# 	# Fallback
-# 	{ name = "*", use = [ "open", "reveal" ] },
-# ]
+
+[open]
+rules = [
+	# Folder
+	{ name = "*/", use = [ "edit", "open", "reveal" ] },
+	# Text
+	{ mime = "text/*", use = [ "edit", "reveal" ] },
+	# Image
+	{ mime = "image/*", use = [ "open", "reveal" ] },
+	# Media
+	{ mime = "{audio,video}/*", use = [ "play", "reveal" ] },
+	# Archive
+	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", use = [ "extract", "reveal" ] },
+	# JSON
+	{ mime = "application/{json,ndjson}", use = [ "edit", "reveal" ] },
+	{ mime = "*/javascript", use = [ "edit", "reveal" ] },
+	# Empty file
+	{ mime = "inode/empty", use = [ "edit", "reveal" ] },
+	# Fallback
+	{ name = "*", use = [ "open", "reveal" ] },
+]
 
 # [tasks]
 # micro_workers    = 10

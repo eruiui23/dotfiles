@@ -62,7 +62,7 @@ imagebox {
     spacing:                     0px;
     padding:                     00px;
     background-color:            transparent;
-    background-image:            url("~/.config/rofi/images/hidupblondefast.jpg", height);
+    background-image:            url("~/.config/rofi/images/custom/yellow6.jpg", height);
     children:                    [ "spacer", "inputbar", "message" ];
 }
 
