@@ -357,7 +357,7 @@ for_window [class="fcitx5-config-qt"] floating enable, resize set  800 600, move
 for_window [class="Pavucontrol"] floating enable, move position center, resize set 800 600
 for_window [title="nara230"] floating enable, resize set  800 600, move position center
 for_window [title="i3switcherX11"] floating enable
-for_window [title="Picture-in-Picture"] sticky enable
+for_window [title="Picture-in-Picture"] stick enable
 # exec --no-startup-id i3-switcher-x11
 ## -------------------------------------- screenshoot
 bindsym Print exec --no-startup-id flameshot screen 
