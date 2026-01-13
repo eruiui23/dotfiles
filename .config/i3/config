@@ -146,14 +146,14 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-# bindsym $mod+s layout stacking
-bindsym $mod+Shift+s floating toggle
+bindsym $mod+s floating toggle
+bindsym $mod+o sticky toggle
 bindsym $mod+w layout tabbed
 # bindsym $mod+w exec "i3-msg focus parent && i3-msg layout tabbed"
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod++s focus mode_toggle
+bindsym $mod+Shift+s focus mode_toggle
 
 
 # focus the parent container
@@ -327,7 +327,6 @@ bindsym $mod+y exec --no-startup-id nemo
 bindsym $mod+i exec --no-startup-id spotify
 # bindsym $mod+c exec --no-startup-id code
 # bindsym $mod+o exec anki; exec sleep 5; exec sh -c 'XAPP_FORCE_GTKWINDOW_ICON="/home/yucandy16/Downloads/jisho.png" firefox --class WebApp-Jisho6611 --name WebApp-Jisho6611 --profile /home/yucandy16/.local/share/ice/firefox/Jisho6611 --no-remote "https://jisho.org/"'
-bindsym $mod+o exec ~/scripts/launch_jisho.sh  
 
 # bindsym $mod+shift+o exec ~/scripts/start.sh  
 # ----------------------------------------- Startup script
@@ -358,6 +357,7 @@ for_window [class="fcitx5-config-qt"] floating enable, resize set  800 600, move
 for_window [class="Pavucontrol"] floating enable, move position center, resize set 800 600
 for_window [title="nara230"] floating enable, resize set  800 600, move position center
 for_window [title="i3switcherX11"] floating enable
+for_window [title="Picture-in-Picture"] sticky enable
 # exec --no-startup-id i3-switcher-x11
 ## -------------------------------------- screenshoot
 bindsym Print exec --no-startup-id flameshot screen 
