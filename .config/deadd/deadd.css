@@ -1,0 +1,158 @@
+
+/* Notification center */
+
+.blurredBG, #main_window, .blurredBG.low, .blurredBG.normal {
+    background: rgba(20, 40, 47, 0.9);
+}
+
+.noti-center.time {
+    font-size: 32px;
+}
+
+/* Notifications */
+
+.notification.content {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.appname {
+    font-size: 12px;
+}
+
+.time {
+    font-size: 12px;
+}
+
+.blurredBG.notification {
+    background:  rgba(32, 32, 32, 0.8);
+}
+
+.blurredBG.notification.critical {
+    background: rgba(255, 0, 0, 0.5);
+}
+
+.notificationInCenter {
+    background: rgba(11, 23, 27, 0.9);
+    border-radius: 15px;
+    padding:0 15px;
+}
+
+.notificationInCenter.critical {
+    background: rgba(155, 0, 20, 0.5);
+}
+
+/* Labels */
+
+label {
+    color: #e8e8e8;
+}
+
+label.notification {
+    color: #e8e8e8;
+}
+
+label.critical {
+    color: #e8e8e8;
+}
+.notificationInCenter label.critical {
+    color:  #e8e8e8;
+}
+
+label.deadd-noti-center.notification.body {
+    font-size: small;
+}
+
+/* Buttons */
+
+button {
+    background: transparent;
+    color: #e8e8e8;
+    border-radius: 3px;
+    border-width: 0px;
+    background-position: 0px 0px;
+    text-shadow: none;
+}
+
+button:hover {
+    border-radius: 3px;
+    background: rgba(185, 185, 185, 0.2);
+    border-width: 0px;
+    border-top: transparent;
+    border-color: #f00;
+    color: #fee;
+}
+
+
+/* Custom Buttons */
+
+.userbutton {
+    background: rgba(35, 35, 35, 0.15);
+    border-radius: 125px;
+    padding: 5px 20px;
+    margin: 0 160px;
+}
+
+.userbuttonlabel {
+    color: #dcdcdc;
+    font-size: 12px;
+}
+
+ .userbutton:hover {
+    background: rgba(7, 7, 7, 0.006);
+}
+/*
+.userbuttonlabel:hover {
+    color: #111;
+}
+
+button.buttonState1 {
+    background: rgba(20,0,0,0.5);
+}
+
+.userbuttonlabel.buttonState1 {
+    color: #fff;
+}
+
+button.buttonState1:hover {
+    background: rgba(20,0,0, 0.4);
+}
+
+.userbuttonlabel.buttonState1:hover {
+    color: #111;
+}
+
+button.buttonState2 {
+    background: rgba(255,255,255,0.3);
+}
+
+.userbuttonlabel.buttonState2 {
+    color: #111;
+}
+
+button.buttonState2:hover {
+    background: rgba(20,0,0, 0.3);
+}
+
+.userbuttonlabel.buttonState2:hover {
+    color: #000;
+} */
+
+
+/* Images */
+
+image.deadd-noti-center.notification.image {
+    margin-left: 20px;
+}
+
+/* image.deadd-noti-center.notification.icon,
+label.deadd-noti-center.notification.appname,
+image.deadd-noti-center.in-center.icon,
+label.deadd-noti-center.in-center.appname {
+    opacity: 0
+} */

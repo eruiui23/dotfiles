@@ -27,7 +27,9 @@ font pango:JetBrains Mono 10
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
+
 exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id xsetroot -cursor_name left_ptr
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -280,16 +282,14 @@ hide_edge_borders smart
 #} hehe
 
 # -------------------------------------- border
+
 title_align center # buat bikin judulnya di tengah
-# for_window [class="^.*"] border pixel 4.5
-# for_window [class="^.*"] border none
-for_window [class="^.*"] border normal 0 
-# for_window [class="kitty"] border pixel 5 
-# for_window [class=""] border none 
-# default_border normal 0 
+# for_window [class="^.*"] border normal 0 
 for_window [all] border pixel 0
+
 # for_window [all] title_format "%class %title"
 for_window [class="Anki"] title_format "%title"
+for_window [class="Anki"] border normal 0
 for_window [class="kitty"] title_format "%title"
 for_window [class="Code"] border pixel 0
 for_window [class="obsidian"] border pixel 0
@@ -319,14 +319,6 @@ exec_always --no-startup-id xinput set-prop "SYNA2BA6:00 06CB:CE2D Touchpad" "li
 exec_always --no-startup-id picom --experimental-backends --config ~/.config/picom/picom.conf
 
 
-# open app, browser and file
-# bindsym $mod+u  --no-startup-id i3-msg "workspace $ws3"; exec sleep 5 && flatpak run app.zen_browser.zen
-
-bindsym $mod+u exec --no-startup-id /home/yucandy16/.local/share/zen/zen
-bindsym $mod+y exec --no-startup-id nemo
-bindsym $mod+i exec --no-startup-id spotify
-# bindsym $mod+c exec --no-startup-id code
-# bindsym $mod+o exec anki; exec sleep 5; exec sh -c 'XAPP_FORCE_GTKWINDOW_ICON="/home/yucandy16/Downloads/jisho.png" firefox --class WebApp-Jisho6611 --name WebApp-Jisho6611 --profile /home/yucandy16/.local/share/ice/firefox/Jisho6611 --no-remote "https://jisho.org/"'
 
 # bindsym $mod+shift+o exec ~/scripts/start.sh  
 # ----------------------------------------- Startup script
@@ -366,11 +358,16 @@ bindsym mod1+z exec --no-startup-id /home/yucandy16/scripts/flameshotfocus.sh
 # bindsym Print exec --no-startup-id bash -c "focused_window_id=$(xdotool getactivewindow); flameshot gui; sleep 0.2; xdotool windowactivate $focused_window_id"
 exec --no-startup-id parcellite &
 exec --no-startup-id flameshot &
+
+# ---------------------------------------- Notification
 # exec --no-startup-id dunst &
-exec_always --no-startup-id dunst -conf ~/.config/dunst/dunstrc 
+# exec_always --no-startup-id dunst -conf ~/.config/dunst/dunstrc 
+exec deadd-notification-center
+bindsym $mod+n exec --no-startup-id kill -s USR1 $(pidof deadd-notification-center)
+# bindsym $mod+Shift+n exec --no-startup-id kill -s USR2 $(pidof deadd-notification-center)
 
 # --------------------------------------- xzoom (magnify tool)
-bindsym $mod+m exec --no-startup-id xzoom -mag 2
+# bindsym $mod+m exec --no-startup-id xzoom -mag 2
 
 
 #brightness
