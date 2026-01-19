@@ -52,11 +52,12 @@ exec_always --no-startup-id sleep 0.5 && nitrogen --restore
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id exec ~/scripts/volume-osd.sh up
-bindsym XF86AudioLowerVolume exec --no-startup-id exec ~/scripts/volume-osd.sh down
+# bindsym XF86AudioRaiseVolume exec --no-startup-id exec ~/scripts/volume-osd.sh up
+# bindsym XF86AudioLowerVolume exec --no-startup-id exec ~/scripts/volume-osd.sh down
+# Volume Control
 
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 # bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -288,8 +289,8 @@ title_align center # buat bikin judulnya di tengah
 for_window [all] border pixel 0
 
 # for_window [all] title_format "%class %title"
-for_window [class="Anki"] title_format "%title"
-for_window [class="Anki"] border normal 0
+# for_window [class="Anki"] title_format "%title"
+# for_window [class="Anki"] border normal 0
 for_window [class="kitty"] title_format "%title"
 for_window [class="Code"] border pixel 0
 for_window [class="obsidian"] border pixel 0
@@ -298,10 +299,12 @@ for_window [class="kitty"] border pixel 0
 # for_window [all] title_window_icon padding 3px
 
 # Load polybar
-exec_always --no-startup-id sh -c "pkill polybar; polybar --reload -c $HOME/.config/polybar/config.ini &"
+# exec_always --no-startup-id sh -c "pkill polybar; polybar --reload -c $HOME/.config/polybar/config.ini &"
+exec_always  --no-startup-id ~/scripts/launch-polybar.sh 
 
 # ---------------------------------------- Set refresh rate sec monitor
 exec_always --no-startup-id xrandr  --output HDMI-1-0 --mode 1920x1080 --rate 180.00 
+exec_always --no-startup-id xrandr  --output HDMI-0 --mode 1920x1080 --rate 180.00 
 
 # gaps
 # Inner gaps for all windows: space between two adjacent windows (or split containers).
@@ -346,10 +349,12 @@ for_window [class="MintUpdate.py"] floating enable, resize set  1200 800, move p
 for_window [class="Drawing"] floating enable, resize set  800 600, move position center
 for_window [title="xzoom"] floating enable, resize set  800 600, move position center
 for_window [class="fcitx5-config-qt"] floating enable, resize set  800 600, move position center
+for_window [class="steam"] floating enable, resize set  800 600, move position center
 for_window [class="Pavucontrol"] floating enable, move position center, resize set 800 600
 for_window [title="nara230"] floating enable, resize set  800 600, move position center
 for_window [title="i3switcherX11"] floating enable
 for_window [title="Picture-in-Picture"] stick enable
+
 # exec --no-startup-id i3-switcher-x11
 ## -------------------------------------- screenshoot
 bindsym Print exec --no-startup-id flameshot screen 
@@ -362,7 +367,6 @@ exec --no-startup-id flameshot &
 # ---------------------------------------- Notification
 # exec --no-startup-id dunst &
 # exec_always --no-startup-id dunst -conf ~/.config/dunst/dunstrc 
-exec deadd-notification-center
 bindsym $mod+n exec --no-startup-id kill -s USR1 $(pidof deadd-notification-center)
 # bindsym $mod+Shift+n exec --no-startup-id kill -s USR2 $(pidof deadd-notification-center)
 

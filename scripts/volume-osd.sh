@@ -1,11 +1,10 @@
 #!/bin/bash
 
-# Define the volume step (how much to increase/decrease per keypress)
+# Define the volume step
 STEP="5%"
-ICON_MUTE=""  # Font Awesome mute icon
-ICON_UP=""    # Font Awesome volume up icon
-ICON_DOWN=""  # Font Awesome volume down icon
-ICON_BAR="─"   # Character for the progress bar
+ICON_MUTE="audio-volume-muted" # Using standard icon names for better compatibility
+ICON_UP="audio-volume-high"
+ICON_DOWN="audio-volume-low"
 
 # --- Functions ---
 
@@ -20,38 +19,36 @@ is_muted() {
 send_notification() {
   CURRENT_VOL=$(get_volume)
 
-  # Select icon based on status
+  # Select icon and progress value
   if is_muted; then
-    ICON=$ICON_MUTE
-    BAR_STATUS="Mute"
+    ICON="audio-volume-muted"
     HINT_VALUE=0
-  elif [ "$CURRENT_VOL" -gt 50 ]; then
-    ICON=$ICON_UP
-    BAR_STATUS=$(seq -s $ICON_BAR $(($CURRENT_VOL / 5)) | tr -d '[:digit:]')
-    HINT_VALUE=$CURRENT_VOL
   else
-    ICON=$ICON_DOWN
-    BAR_STATUS=$(seq -s $ICON_BAR $(($CURRENT_VOL / 5)) | tr -d '[:digit:]')
     HINT_VALUE=$CURRENT_VOL
+    [ "$CURRENT_VOL" -gt 50 ] && ICON="audio-volume-high" || ICON="audio-volume-low"
   fi
 
-  # Send the notification to Dunstify
-  dunstify -a "osd" -i "$ICON" -r 9910 -h int:value:$HINT_VALUE "VOL: $CURRENT_VOL%" 
+  # Forces ID 9910 to ensure the notification REPLACES the old one
+  # 'transient: true' ensures it never saves to your sidebar history
+  gdbus call --session --dest org.freedesktop.Notifications \
+    --object-path /org/freedesktop/Notifications \
+    --method org.freedesktop.Notifications.Notify \
+    "osd" 9910 "$ICON" "VOL: $CURRENT_VOL%" "" "[]" \
+    "{\"has-percentage\": <$HINT_VALUE>, \"transient\": <true>}" 2000
 }
 
 # --- Main Logic ---
-
 case "$1" in
-  up)
-    pactl set-sink-volume @DEFAULT_SINK@ +$STEP
-    send_notification
-    ;;
-  down)
-    pactl set-sink-volume @DEFAULT_SINK@ -$STEP
-    send_notification
-    ;;
-  mute)
-    pactl set-sink-mute @DEFAULT_SINK@ toggle
-    send_notification
-    ;;
+up)
+  pactl set-sink-volume @DEFAULT_SINK@ +$STEP
+  send_notification
+  ;;
+down)
+  pactl set-sink-volume @DEFAULT_SINK@ -$STEP
+  send_notification
+  ;;
+mute)
+  pactl set-sink-mute @DEFAULT_SINK@ toggle
+  send_notification
+  ;;
 esac
