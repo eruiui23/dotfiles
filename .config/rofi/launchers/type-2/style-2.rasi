@@ -35,7 +35,7 @@ window {
     border:                      0px solid;
     border-radius:               12px;
     border-color:                @selected;
-    background-color:            @background;
+    background-color:            #131d1fc8;
     cursor:                      "default";
 }
 
@@ -61,7 +61,7 @@ inputbar {
     border:                      0px solid;
     border-radius:               12px;
     border-color:                @selected;
-    background-color:            @background-alt;
+    background-color:            rgba(0,0,0,0);
     text-color:                  @foreground;
     children:                    [ "prompt", "entry" ];
 }
@@ -130,13 +130,13 @@ element {
     text-color:                  @foreground;
     cursor:                      pointer;
 }
-element normal.normal {
-    background-color:            @background;
-    text-color:                  @foreground;
-}
+// element normal.normal {
+//     background-color:            @background;
+//     text-color:                  @foreground;
+// }
 element selected.normal {
     background-color:            @selected;
-    text-color:                  @background;
+    text-color:                  @foreground;
 }
 element-icon {
     background-color:            transparent;

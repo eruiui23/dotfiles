@@ -2,7 +2,7 @@
 set $mod Mod4
 
 
-exec_always --no-startup-id stalonetray --geometry 3x1+980+0 --dockapp-mode simple --window-class "StalonetrayToggle"
+# exec_always --no-startup-id stalonetray --geometry 3x1+980+0 --dockapp-mode simple --window-class "StalonetrayToggle"
 # Aturan untuk Stalonetray
 for_window [class="StalonetrayToggle"] floating enable, border pixel 0, sticky enable, no_focus, move to workspace number 9
 # exec --no-startup-id bash -c "mpv --fs --no-border --volume=100 --really-quiet Videos/chisa.mp4" 
@@ -22,7 +22,7 @@ for_window [class="StalonetrayToggle"] floating enable, border pixel 0, sticky e
 # font pango:DejaVu Sans Mono 8
 font pango:JetBrains Mono 10
 # font pango:JetBrains Mono 12
-
+exec_always xrdb -merge ~/.Xresources
 
 
 # Start XDG autostart .desktop files using dex. See also
@@ -43,7 +43,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l --nof
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-exec --no-startup-id ffplay -nodisp -autoexit Music/chisa.mp3          
+exec --no-startup-id ffplay -nodisp -autoexit Music/chisa.mp3
 
 # Load nitrogen wallpaper
 # exec --no-startup-id nitrogen --restore
@@ -82,7 +82,7 @@ bindsym $mod+Escape kill
 
 # ----------------------------------------------------- Rofi
 # pake convert -strip input.png output.png buat bikin imagenya load cepet
-bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/type-6/launcher.sh
+bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/type-2/launcher.sh
 # bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/type-6/launcher_window.sh
 bindsym $mod+p exec --no-startup-id /home/yucandy16/.config/rofi/powermenu/type-6/powermenu.sh
 
@@ -284,7 +284,7 @@ hide_edge_borders smart
 
 # -------------------------------------- border
 
-title_align center # buat bikin judulnya di tengah
+title_align center 
 # for_window [class="^.*"] border normal 0 
 for_window [all] border pixel 0
 
@@ -303,8 +303,8 @@ for_window [class="kitty"] border pixel 0
 exec_always  --no-startup-id ~/scripts/launch-polybar.sh 
 
 # ---------------------------------------- Set refresh rate sec monitor
-exec_always --no-startup-id xrandr  --output HDMI-1-0 --mode 1920x1080 --rate 180.00 
-exec_always --no-startup-id xrandr  --output HDMI-0 --mode 1920x1080 --rate 180.00 
+# exec_always --no-startup-id xrandr  --output HDMI-1-0 --mode 1920x1080 --rate 180.00 
+exec --no-startup-id xrandr  --output HDMI-0 --mode 1920x1080 --rate 180.00 --pos 0x0 &
 
 # gaps
 # Inner gaps for all windows: space between two adjacent windows (or split containers).
@@ -319,13 +319,13 @@ exec_always --no-startup-id xinput set-prop "SYNA2BA6:00 06CB:CE2D Touchpad" "li
 
 
 # open picom
-exec_always --no-startup-id picom --experimental-backends --config ~/.config/picom/picom.conf
+exec_always --no-startup-id picom -b
 
 
 
 # bindsym $mod+shift+o exec ~/scripts/start.sh  
 # ----------------------------------------- Startup script
-exec --no-startup-id ~/scripts/start.sh  
+exec --no-startup-id ~/scripts/start.sh &
 
 # Assign Workspaces:
 assign [class="zen"] $ws3
@@ -349,8 +349,9 @@ for_window [class="MintUpdate.py"] floating enable, resize set  1200 800, move p
 for_window [class="Drawing"] floating enable, resize set  800 600, move position center
 for_window [title="xzoom"] floating enable, resize set  800 600, move position center
 for_window [class="fcitx5-config-qt"] floating enable, resize set  800 600, move position center
-for_window [class="steam"] floating enable, resize set  800 600, move position center
 for_window [class="Pavucontrol"] floating enable, move position center, resize set 800 600
+for_window [title="Friends List"] floating enable, move position center
+for_window [title="User 1 - Anki"] floating disable
 for_window [title="nara230"] floating enable, resize set  800 600, move position center
 for_window [title="i3switcherX11"] floating enable
 for_window [title="Picture-in-Picture"] stick enable
@@ -395,7 +396,7 @@ exec_always --no-startup-id xset r rate 250 40
 
 # login buat timeshift dan teman teman
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
-
+# exec --no-startup-id /usr/lib/policykit-1/polkit-agent-helper-1
 
 # ------------------------ Keybind ------------------------------#
 

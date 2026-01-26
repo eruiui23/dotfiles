@@ -152,3 +152,6 @@ node() { lazy_nvm; node "$@"; }
 npm() { lazy_nvm; npm "$@"; }
 npx() { lazy_nvm; npx "$@"; }
 nvm() { lazy_nvm; nvm "$@"; }
+
+export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
+export __GL_SHADER_DISK_CACHE_SIZE=10737418240

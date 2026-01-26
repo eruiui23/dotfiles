@@ -1,0 +1,189 @@
+/* Tridactyl "Zen-Floating" Theme 
+   Location: ~/.config/tridactyl/themes/mydark.css
+*/
+
+:root {
+    /* Colors & Typography */
+    --tridactyl-font-family: "JetBrains Mono", monospace;
+    --tridactyl-bg: rgba(28, 28, 28, 0.8) !important; 
+    --tridactyl-fg: #f8f8f2 !important;
+    
+    /* Selection Highlights */
+    --tridactyl-of-bg: rgba(28, 28, 28, 0.5) !important; 
+    --tridactyl-of-fg: #2ed1ab !important;
+    
+    /* Layout Constants */
+    --tridactyl-border-radius: 12px;
+
+    --tridactyl-hint-bg: rgba(28, 28, 28, 0.85) !important; /* Dark background */
+    --tridactyl-hint-fg: #f8f8f2 !important;               /* White text */
+    
+    /* Colors for the Active Hint (The one you are partially typing) */
+    --tridactyl-hint-active-bg: #2ed1ab !important;        /* Your Teal Accent */
+    --tridactyl-hint-active-fg: #f8f8f2 !important;
+
+}
+
+/* --- THE FIXES: Scoped to Tridactyl Only --- */
+
+html.TridactylOwnNamespace, 
+body.TridactylOwnNamespace {
+    color-scheme: only dark !important;
+    background: transparent !important;
+}
+
+/* Ensure the iframe container itself is transparent */
+#cmdline_iframe {
+    color-scheme: only dark !important;
+    background: transparent !important;
+}
+
+.TridactylOwnNamespace * {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* --- MAIN CONTAINER --- */
+
+#cmdline_iframe {
+    position: fixed !important;
+    top: 32% !important;
+    left: 15% !important;
+    /* right: 55% !important; */
+    width: 60% !important;
+    
+    background: var(--tridactyl-bg) !important;
+    backdrop-filter: blur(20px); /* Frosted glass effect */
+    
+    border-radius: var(--tridactyl-border-radius) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important; /* Subtle visible border */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6) !important;
+    
+    /* display: flex !important; */
+    /* flex-direction: column !important; /* Inverts layout */ */
+    z-index: 2147483647 !important;
+}
+
+/* --- 1. COMMAND LINE (Now on Top) --- */
+
+#command-line-holder {
+    order: 1 !important; /* Positions input at the top */
+    display: flex !important;
+    padding: 18px 22px 0px !important;
+    background: rgba(255, 255, 255, 0.0) !important;
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; */
+}
+
+#tridactyl-input {
+    font-family: var(--tridactyl-font-family) !important;
+    font-size: 1rem !important;
+    background: transparent !important;
+    color: var(--tridactyl-fg) !important;
+    width: 100% !important;
+}
+
+/* Remove the colon ':' for the modern URL-bar aesthetic */
+#tridactyl-colon {
+    display: none !important;
+}
+
+/* --- 2. SUGGESTIONS / COMPLETIONS (Underneath) --- */
+
+#completions {
+    order: 2 !important; /* Positions suggestions below input */
+    background: transparent !important;
+    font-family: var(--tridactyl-font-family) !important;
+    font-size: 0.8rem !important;
+    padding: 10px 15px 20px 15px !important;
+    max-height: 450px !important;
+    overflow-y: auto !important;
+}
+
+/* Individual Result Styling */
+.option {
+    padding: 10px 15px !important;
+    border-radius: 8px !important;
+    margin: 2px 0 !important;
+    background: transparent !important;
+    transition: background 0.1s ease;
+}
+
+/* Focused / Selected Item */
+.focused {
+    background: var(--tridactyl-of-bg) !important;
+    color: var(--tridactyl-of-fg) !important;
+    border-radius: 10px !important;
+}
+
+/* Hide Headers (History, Buffers, etc) */
+.sectionHeader {
+    display: none !important;
+}
+
+/* --- 3. MODE INDICATOR (Bottom Right) --- */
+
+.TridactylStatusIndicator {
+    position: fixed !important;
+    bottom: 10px !important;
+    right: 20px !important;
+    padding: 6px 14px !important;
+    background: var(--tridactyl-bg) !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    font-family: var(--tridactyl-font-family) !important;
+    /* color: var(--tridactyl-fg) !important; */
+    color: var(--tridactyl-fg) !important;
+    font-weight: bold;
+    z-index: 2147483646 !important;
+}
+
+/* --- FIX FOR THE GHOST LINE --- */
+
+/* When Tridactyl hides the command line, ensure we kill the border and shadow */
+#cmdline_iframe.hidden {
+    display: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    pointer-events: none !important;
+}
+
+/* --- LINK COLORS --- */
+#completions a, 
+#completions .url {
+    color: #7d7d7d !important; 
+    text-decoration: none !important;
+}
+
+span.TridactylHint {
+    font-family: "JetBrains Mono", monospace !important;
+    font-size: 13px !important;
+    font-weight: bold !important;
+
+    padding: 3px 6px !important;
+    border-radius: 6px !important; /* Matches your theme's roundness */
+
+    background: var(--tridactyl-hint-bg) !important;
+    color: var(--tridactyl-hint-fg) !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important; /* Pop-out effect */
+    text-transform: uppercase !important;
+}
+
+
+span.TridactylHint.TridactylHintActive {
+    background: var(--tridactyl-hint-active-bg) !important;
+    color: var(--tridactyl-hint-active-fg) !important;
+    border-color: var(--tridactyl-hint-active-bg) !important;
+    z-index: 2147483647 !important;
+}
+
+.TridactylHintElem {
+    /* Adds a faint teal glow to the link you are looking at */
+    background-color: rgba(46, 209, 171, 0.05) !important; 
+    outline: 1px dashed rgba(46, 209, 171, 0.4) !important;
+}
