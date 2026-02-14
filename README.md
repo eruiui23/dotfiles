@@ -1,6 +1,3 @@
-my dotfiles
-
-
 
 <img width="133" height="96" alt="image" src="https://github.com/user-attachments/assets/ca9d036c-a0f1-4e60-8f4f-452e85abe10b" />
 
