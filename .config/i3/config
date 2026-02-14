@@ -1,14 +1,11 @@
 # Variabel
 set $mod Mod4
-
+include ~/.config/i3/app.conf
 
 # exec_always --no-startup-id stalonetray --geometry 3x1+980+0 --dockapp-mode simple --window-class "StalonetrayToggle"
 # Aturan untuk Stalonetray
 for_window [class="StalonetrayToggle"] floating enable, border pixel 0, sticky enable, no_focus, move to workspace number 9
 # exec --no-startup-id bash -c "mpv --fs --no-border --volume=100 --really-quiet Videos/chisa.mp4" 
-# export QT_QPA_PLATFORMTHEME=gtk3
-# export QT_QPA_PLATFORMTHEME=qt5ct   # (untuk Qt5)
-# export QT_QPA_PLATFORMTHEME=qt6ct   # (untuk Qt6)
 
 # exec_always --no-startup-id export QT_QPA_PLATFORMTHEME=qt6ct
 # exec_always --no-startup-id export QT_FILE_SELECTORS=gtk 
@@ -48,6 +45,7 @@ exec --no-startup-id ffplay -nodisp -autoexit Music/chisa.mp3
 # Load nitrogen wallpaper
 # exec --no-startup-id nitrogen --restore
 exec_always --no-startup-id sleep 0.5 && nitrogen --restore
+exec --no-startup-id eww daemon
 
 
 # Use pactl to adjust volume in PulseAudio.
@@ -329,13 +327,13 @@ exec --no-startup-id ~/scripts/start.sh &
 
 # Assign Workspaces:
 assign [class="zen"] $ws3
-assign [class="Code"] $ws4
+# assign [class="Code"] $ws4
 assign [class="Spotify"] $ws10
 # assign [class="WebApp-Jisho6611"] $ws8
-# assign [class="Anki"] $ws8
+assign [title="User 1 - Anki"] $ws8
 assign [class="Nemo"] $ws2
 assign [class="discord"] $ws9
-assign [class="WebApp-whatsapp2493"] $ws9
+assign [class="WebApp-WhatsApp5233"] $ws9
 assign [class="obsidian"] $ws5
 
 # -------------------------------------- window setting (floating, position, etc)
@@ -365,11 +363,12 @@ bindsym mod1+z exec --no-startup-id /home/yucandy16/scripts/flameshotfocus.sh
 exec --no-startup-id parcellite &
 exec --no-startup-id flameshot &
 
-# ---------------------------------------- Notification
+# ---------------------------------------- Notification & Widget
 # exec --no-startup-id dunst &
 # exec_always --no-startup-id dunst -conf ~/.config/dunst/dunstrc 
 bindsym $mod+n exec --no-startup-id kill -s USR1 $(pidof deadd-notification-center)
 # bindsym $mod+Shift+n exec --no-startup-id kill -s USR2 $(pidof deadd-notification-center)
+bindsym $mod+m exec eww open --toggle music-widget
 
 # --------------------------------------- xzoom (magnify tool)
 # bindsym $mod+m exec --no-startup-id xzoom -mag 2
