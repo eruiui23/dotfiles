@@ -27,19 +27,18 @@
 #  i3-msg restart
 
 sleep 3
-
-spotify &
+~/scripts/change_wallpaper.sh &
+~/scripts/temp_control.sh &
+~/.local/share/zen/zen &
 sleep 1
 nemo &
 sleep 1
 sh -c 'XAPP_FORCE_GTKWINDOW_ICON="whatsapp" firefox --class WebApp-WhatsApp5233 --name WebApp-WhatsApp5233 --profile /home/yucandy16/.local/share/ice/firefox/WhatsApp5233 --no-remote "https://web.whatsapp.com/"' &
-sleep 2
-
+sleep 1
 # Zen Browser
-~/.local/share/zen/zen &
-sleep 2
-
+spotify &
 # Flatpaks and others
 flatpak run com.discordapp.Discord &
 sleep 1
 obsidian &
+anki &

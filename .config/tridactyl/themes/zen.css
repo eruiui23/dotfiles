@@ -1,27 +1,34 @@
-/* Tridactyl "Zen-Floating" Theme 
+/* Tridactyl "Zen-Flat" Theme (Non-Floating Bottom Bar)
    Location: ~/.config/tridactyl/themes/mydark.css
 */
 
 :root {
-    /* Colors & Typography */
+    /* --- COLORS & TYPOGRAPHY --- */
     --tridactyl-font-family: "JetBrains Mono", monospace;
-    --tridactyl-bg: rgba(28, 28, 28, 0.8) !important; 
+    --tridactyl-bg: rgba(28, 28, 28, 0.9) !important; 
     --tridactyl-fg: #f8f8f2 !important;
     
-    /* Selection Highlights */
-    --tridactyl-of-bg: rgba(28, 28, 28, 0.5) !important; 
-    --tridactyl-of-fg: #2ed1ab !important;
-    
-    /* Layout Constants */
-    --tridactyl-border-radius: 12px;
+    /* Variables for the new layout (standard bottom bar look) */
+    --tridactyl-select-bg: rgba(28, 28, 28, 0.1) !important; 
+    --tridactyl-select-fg: #2ed1ab !important;
+    --tridactyl-cmdl-height: 22px; /* slim compact bar height */
+    --tridactyl-padding: 0 5px;   /* standardized tight padding */
+    --tridactyl-border: 1px solid rgba(255, 255, 255, 0.1);
 
+    /* Original Selection Highlights - Preserve Teal but change bg for solid bar contrast */
+    --tridactyl-of-bg: var(--tridactyl-select-bg) !important; 
+    --tridactyl-of-fg: var(--tridactyl-select-fg) !important;
+    
+    /* Layout Constants (Remove floating roundness) */
+    --tridactyl-border-radius: 0px !important;
+
+    /* --- HINT MODE COLORS ( preserved) --- */
     --tridactyl-hint-bg: rgba(28, 28, 28, 0.85) !important; /* Dark background */
     --tridactyl-hint-fg: #f8f8f2 !important;               /* White text */
     
-    /* Colors for the Active Hint (The one you are partially typing) */
+    /* Active Hint (partially typed) */
     --tridactyl-hint-active-bg: #2ed1ab !important;        /* Your Teal Accent */
     --tridactyl-hint-active-fg: #f8f8f2 !important;
-
 }
 
 /* --- THE FIXES: Scoped to Tridactyl Only --- */
@@ -38,6 +45,7 @@ body.TridactylOwnNamespace {
     background: transparent !important;
 }
 
+/* Standardized scoped reset - Only kill borders inside Tridactyl */
 .TridactylOwnNamespace * {
     border: none !important;
     outline: none !important;
@@ -48,36 +56,59 @@ body.TridactylOwnNamespace {
 
 #cmdline_iframe {
     position: fixed !important;
-    top: 32% !important;
-    left: 15% !important;
-    /* right: 55% !important; */
-    width: 60% !important;
+    
+    /* Remove floating positioning */
+    /* top: 32% !important; */
+    /* left: 15% !important; */
+    /* width: 60% !important; */
+    
+    /* New Positioning: Anchor to the bottom and take full width */
+    bottom: 0px !important;
+    left: 0px !important;
+    right: 0px !important;
+    width: 100% !important;
     
     background: var(--tridactyl-bg) !important;
-    backdrop-filter: blur(20px); /* Frosted glass effect */
     
-    border-radius: var(--tridactyl-border-radius) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important; /* Subtle visible border */
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6) !important;
+    /* --- LAYOUT CONTRAINTS --- */
+    /* Prevents the panel from covering the whole screen when completions are shown */
+    max-height: 50% !important;
+    overflow: hidden !important; 
     
+    /* Remove floating aesthetics: filter, rounded corners, border, shadow */
+    /* backdrop-filter: blur(50px) !important; /* Frosted glass effect - keep if picom handles it */ */
+    /* border-radius: 12px !important; */
+    border: none !important; /* Continuous look against the viewport edge */
+    box-shadow: none !important;
+    
+    /* --- LAYOUT LOGIC --- */
+    /* Remove inverted flex-ordering - Reverts to Tridactyl's default (Input on Bottom, completions panel expands up) */
     /* display: flex !important; */
-    /* flex-direction: column !important; /* Inverts layout */ */
+    /* flex-direction: column !important; */
+    
     z-index: 2147483647 !important;
 }
 
-/* --- 1. COMMAND LINE (Now on Top) --- */
+/* --- 1. COMMAND LINE (Slim bar now on the bottom) --- */
 
 #command-line-holder {
-    order: 1 !important; /* Positions input at the top */
+    /* Remove 'Input on Top' logic */
+    /* order: 1 !important; */ 
+    
     display: flex !important;
-    padding: 18px 22px 0px !important;
+    
+    /* Standardized tight padding for slim bottom bar */
+    padding: 2px 5px !important; 
     background: rgba(255, 255, 255, 0.0) !important;
-    /* border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; */
+    
+    /* Defines the bar on the bottom - adds separating top border from completions above */
+    border-top: var(--tridactyl-border) !important; 
 }
 
 #tridactyl-input {
     font-family: var(--tridactyl-font-family) !important;
-    font-size: 1rem !important;
+    /* Reduced font size for slim compact bar */
+    font-size: 0.9rem !important; 
     background: transparent !important;
     color: var(--tridactyl-fg) !important;
     width: 100% !important;
@@ -88,23 +119,32 @@ body.TridactylOwnNamespace {
     display: none !important;
 }
 
-/* --- 2. SUGGESTIONS / COMPLETIONS (Underneath) --- */
+/* --- 2. SUGGESTIONS / COMPLETIONS (Underneath, expands up) --- */
 
 #completions {
-    order: 2 !important; /* Positions suggestions below input */
+    /* Remove 'Completions below Input' logic */
+    /* order: 2 !important; */ 
+    
     background: transparent !important;
     font-family: var(--tridactyl-font-family) !important;
+    
+    /* Reduced font size for tight list */
     font-size: 0.8rem !important;
-    padding: 10px 15px 20px 15px !important;
-    max-height: 450px !important;
+    
+    /* Standard tight padding */
+    padding: 0 5px !important;
+    
+    /* Define height and scrolling behavior */
+    /* set to prevent covering the input bar. (Viewport bottom -> Input bar (22px) -> completions panel). 22px is slim bar height */
+    max-height: calc(50% - 22px) !important;
     overflow-y: auto !important;
 }
 
-/* Individual Result Styling */
+/* Individual Result Styling (compact) */
 .option {
-    padding: 10px 15px !important;
-    border-radius: 8px !important;
-    margin: 2px 0 !important;
+    padding: 1px 5px !important;
+    /* remove roundness for continuous bar look */
+    /* border-radius: 8px !important; */
     background: transparent !important;
     transition: background 0.1s ease;
 }
@@ -113,7 +153,8 @@ body.TridactylOwnNamespace {
 .focused {
     background: var(--tridactyl-of-bg) !important;
     color: var(--tridactyl-of-fg) !important;
-    border-radius: 10px !important;
+    /* Remove roundness */
+    /* border-radius: 10px !important; */
 }
 
 /* Hide Headers (History, Buffers, etc) */
@@ -125,20 +166,51 @@ body.TridactylOwnNamespace {
 
 .TridactylStatusIndicator {
     position: fixed !important;
-    bottom: 10px !important;
-    right: 20px !important;
-    padding: 6px 14px !important;
+    bottom: 4px !important;
+    right: 8px !important;
+    padding: 6px 10px !important;
     background: var(--tridactyl-bg) !important;
+    font-size: 10px !important;
     border-radius: 8px !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     font-family: var(--tridactyl-font-family) !important;
     /* color: var(--tridactyl-fg) !important; */
     color: var(--tridactyl-fg) !important;
     font-weight: bold;
+    text-transform: uppercase !important;
     z-index: 2147483646 !important;
+    /* opacity: 0.6 !important; */
+
 }
+/* .TridactylStatusIndicator { */
+/*     position: fixed !important; */
+/**/
+/*     /* Placed relative to the VIEWPORT, stays in absolute spot */ */
+/*     bottom: 4px !important; */
+/*     right: 8px !important; */
+/**/
+/*     padding: 6px 10px !important; */
+/*     background: var(--tridactyl-bg) !important; */
+/*     font-size: 10px !important; */
+/**/
+/*     /* remove floating rounded corners */ */
+/*     /* border-radius: 8px !important; */ */
+/**/
+/*     /* add separating top border to match the bottom-bar look */ */
+/*     border-top: var(--tridactyl-border) !important; */
+/*     border-left: var(--tridactyl-border) !important; /* side border */ */
+/**/
+/*     font-family: var(--tridactyl-font-family) !important; */
+/*     color: var(--tridactyl-fg) !important; */
+/*     font-weight: bold; */
+/*     text-transform: uppercase !important; */
+/**/
+/*     z-index: 2147483646 !important; */
+/*     /* opacity: 0.6 !important; */ */
+/* } */
 
 /* --- FIX FOR THE GHOST LINE --- */
+/* ( preserved) */
 
 /* When Tridactyl hides the command line, ensure we kill the border and shadow */
 #cmdline_iframe.hidden {
@@ -152,28 +224,27 @@ body.TridactylOwnNamespace {
 }
 
 /* --- LINK COLORS --- */
+/* ( preserved) */
 #completions a, 
 #completions .url {
     color: #7d7d7d !important; 
     text-decoration: none !important;
 }
 
+/* --- HINT MODE STYLING ( preserved) --- */
+
 span.TridactylHint {
     font-family: "JetBrains Mono", monospace !important;
-    font-size: 13px !important;
-    font-weight: bold !important;
-
-    padding: 3px 6px !important;
-    border-radius: 6px !important; /* Matches your theme's roundness */
-
+    font-size: 12px !important;
+    /* font-weight: bold !important; */
+    /* padding: 3px 6px !important; */
+    border-radius: 6px !important; /* preserved roundness for hint boxes */
     background: var(--tridactyl-hint-bg) !important;
     color: var(--tridactyl-hint-fg) !important;
-
     border: 1px solid rgba(255, 255, 255, 0.15) !important;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important; /* Pop-out effect */
     text-transform: uppercase !important;
 }
-
 
 span.TridactylHint.TridactylHintActive {
     background: var(--tridactyl-hint-active-bg) !important;

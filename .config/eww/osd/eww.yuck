@@ -1,0 +1,29 @@
+;; --- Simple Variables ---
+(defvar osd_value "50")
+(defvar osd_icon "󰕾")
+(defvar show_osd false) ;; New variable to control visibility
+
+(defwidget osd_layout []
+  (box :class "osd-container" 
+       :orientation "h" 
+       :space-evenly false 
+       :spacing 15
+    (label :class "osd-icon" :text osd_icon)
+    (progress :class "osd-bar"
+           :min 0
+           :max 101
+           :value osd_value)
+    (label :class "osd-value" :text "${osd_value}%")
+  )
+)
+
+(defwindow osd
+  :monitor "<primary>"
+  :geometry (geometry :x "0%"
+                      :y "-60px" 
+                      :width "200px"
+                      :height "50px"
+                      :anchor "bottom center")
+  :stacking "fg"
+  (osd_layout)
+)

@@ -7,6 +7,11 @@
 
 .noti-center.time {
     font-size: 32px;
+    font-weight: bold;
+}
+
+.noti-center.date {
+    font-size: 12px;
 }
 
 /* Notifications */
@@ -41,7 +46,8 @@
 .notificationInCenter {
     background: rgba(11, 23, 27, 0.9);
     border-radius: 15px;
-    padding:0 15px;
+    padding:4px 15px;
+    margin-bottom: -10px;
 }
 
 .notificationInCenter.critical {
@@ -67,12 +73,23 @@ label.critical {
 
 label.deadd-noti-center.notification.body {
     font-size: small;
+    opacity:0.8;
+}
+
+label.deadd-noti-center.in-center.time {
+
 }
 
 .notificationInCenter label.body {
     font-size: 14px; 
+    opacity: 0.8;
+    margin-bottom: 5px;
 }
 
+label.deadd-noti-center.noti-center.delete-all {
+  font-size: 10px;
+  background:red;
+}
 /* Buttons */
 
 button {
@@ -82,10 +99,20 @@ button {
     border-width: 0px;
     background-position: 0px 0px;
     text-shadow: none;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 2px 5px;
+    margin-bottom: 2px;
+}
+
+button.delete-all {
+  font-size: 13px;
+  margin-top: -20px;
 }
 
 button:hover {
-    border-radius: 3px;
+    /* border-radius: 3px; */
     background: rgba(185, 185, 185, 0.2);
     border-width: 0px;
     border-top: transparent;
@@ -101,7 +128,9 @@ button:hover {
     border-radius: 125px;
     padding: 5px 20px;
     margin: 0 160px;
+
 }
+
 
 .userbuttonlabel {
     color: #dcdcdc;

@@ -155,3 +155,6 @@ nvm() { lazy_nvm; nvm "$@"; }
 
 export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
 export __GL_SHADER_DISK_CACHE_SIZE=10737418240
+
+# opencode
+export PATH=/home/yucandy16/.opencode/bin:$PATH

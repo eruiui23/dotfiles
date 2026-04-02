@@ -62,7 +62,7 @@ imagebox {
     spacing:                     0px;
     padding:                     00px;
     background-color:            transparent;
-    background-image:            url("~/.config/rofi/images/custom/yellow5.jpg", height);
+    background-image:            url("~/.config/rofi/images/hirayasumi2.jpg", height);
     children:                    [ "spacer", "inputbar", "message" ];
 }
 

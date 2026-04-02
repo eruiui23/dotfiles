@@ -1,0 +1,65 @@
+/* Variables - Defined here to ensure OSD can see them */
+$osd-bg: rgba(20, 40, 47, 0.45); 
+$osd-accent: #e8e8e8;
+$osd-text: #e0e0e0;
+
+// .osd-container {
+//   background-color: $osd-bg;
+//   padding: 15px 25px;
+//   border-radius: 12px;
+//   border: 1px solid rgba($osd-accent, 0.15);
+//   /* Force a minimum size so it can't be 0px */
+//   min-width: 300px;
+//   min-height: 60px;
+// }
+
+.osd-icon {
+  font-size: 22px;
+  color: $osd-accent;
+  margin-right: 10px;
+}
+
+.osd-value {
+  font-size: 16px;
+  color: $osd-text;
+  min-width: 40px;
+  // margin-left: 100px;
+}
+
+
+.osd-bar trough {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+/* Progress bar styling */
+.osd-bar trough {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  min-height: 8px;
+  min-width: 180px;
+}
+
+.osd-bar highlight {
+  background-color: $osd-accent;
+  border-radius: 10px;
+}
+
+/* Ensure the dot is hidden for a clean look */
+.osd-bar slider {
+  min-height: 0;
+  min-width: 0;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  /* Some GTK themes require this to fully vanish */
+  opacity: 0;
+}
+.osd-container {
+  background-color: $osd-bg;
+  padding: 12px 20px; /* Slightly more vertical padding */
+  border-radius: 10px;
+  // border: 1px solid rgba($osd-accent, 0.1);
+}
+
