@@ -103,6 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias lg='lazygit'
 bindkey -e
 export KEYTIMEOUT=1
 # ------------------ functions -------------------------
@@ -158,3 +159,11 @@ export __GL_SHADER_DISK_CACHE_SIZE=10737418240
 
 # opencode
 export PATH=/home/yucandy16/.opencode/bin:$PATH
+
+# pnpm
+export PNPM_HOME="/home/yucandy16/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
