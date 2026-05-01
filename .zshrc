@@ -138,9 +138,9 @@ export PATH="/home/yucandy16/.nvm/versions/node/v22.19.0/bin/node:$PATH"
 export PATH=$PATH:/home/yucandy16/.spicetify
 export PATH="$HOME/scripts:$PATH"
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+export PATH=$PATH:/usr/local/go/bin
+
 export EDITOR="nvim"
-
-
 
 export NVM_DIR="$HOME/.nvm"
 

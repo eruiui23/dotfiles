@@ -4,7 +4,8 @@
 #
 #  # # i3-msg "workspace 1; append_layout ~/.config/i3/1new.json"
 #  sleep 0.3
-#  # (kitty zsh -c "neofetch; exec zsh" &)
+kitty --hold neofetch &
+
 #  # (kitty zsh -c "neofetch" &)
 #
 #  # sleep 0.3
