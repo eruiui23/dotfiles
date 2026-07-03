@@ -108,18 +108,18 @@ bindkey -e
 export KEYTIMEOUT=1
 # ------------------ functions -------------------------
 # Custom functions for nala/apt replacement
-apt() {
-  command nala "$@"
-}
-
-sudo() {
-  if [ "$1" = "apt" ]; then
-    shift
-    command sudo nala "$@"
-  else
-    command sudo "$@"
-  fi
-}
+# apt() {
+#   command nala "$@"
+# }
+#
+# sudo() {
+#   if [ "$1" = "apt" ]; then
+#     shift
+#     command sudo nala "$@"
+#   else
+#     command sudo "$@"
+#   fi
+# }
 
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -139,8 +139,11 @@ export PATH=$PATH:/home/yucandy16/.spicetify
 export PATH="$HOME/scripts:$PATH"
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export PATH=$PATH:/usr/local/go/bin
-
 export EDITOR="nvim"
+export SUDO_EDITOR="nvim"
+export EDITOR="nvim"
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
 
 export NVM_DIR="$HOME/.nvm"
 
@@ -167,3 +170,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+

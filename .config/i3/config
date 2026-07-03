@@ -28,6 +28,8 @@ hide_edge_borders smart
 #-------------------------------------- i3
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+focus_follows_mouse no
+# for_window [urgent="latest"] focus
 # focus_on_window_activation focus
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
@@ -36,7 +38,7 @@ tiling_drag modifier titlebar
 
 #-------------------------------------- Gaps
 # Inner gaps for all windows: space between two adjacent windows (or split containers).
-# gaps outer 8px
+# gaps outer 8px 
 gaps inner 8px
 
 font pango:JetBrains Mono 10
@@ -51,7 +53,9 @@ exec_always --no-startup-id picom -b
 exec_always  --no-startup-id ~/scripts/launch-polybar.sh 
 exec_always --no-startup-id sleep 0.5 && ~/scripts/change_wallpaper.sh
 exec_always xrdb -merge ~/.Xresources
-
+exec_always --no-startup-id nitrogen --restore &
+exec_always --no-startup-id libinput-gestures-setup start &
+# exec_always --no-startup-id i3flow &
 # ----------------------------------------- Startup
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xsetroot -cursor_name left_ptr
@@ -64,6 +68,7 @@ exec --no-startup-id parcellite &
 exec --no-startup-id flameshot &
 exec --no-startup-id caffeine &
 exec --no-startup-id syncthing &
+exec --no-startup-id legionaura apply &
 # login buat timeshift dan teman teman
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xapp-status-applet

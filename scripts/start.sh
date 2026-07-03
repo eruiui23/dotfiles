@@ -36,10 +36,12 @@ nemo &
 # sleep 1
 # sh -c 'XAPP_FORCE_GTKWINDOW_ICON="whatsapp" firefox --class WebApp-WhatsApp5233 --name WebApp-WhatsApp5233 --profile /home/yucandy16/.local/share/ice/firefox/WhatsApp5233 --no-remote "https://web.whatsapp.com/"' &
 sleep 1
-# Zen Browser
 spotify &
 # Flatpaks and others
 flatpak run com.discordapp.Discord &
 sleep 1
 obsidian &
 anki &
+# sleep 3
+# i3-msg workspace 1
+# i3-msg '[urgent="latest"] focus'
