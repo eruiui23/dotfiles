@@ -4,7 +4,8 @@
 #
 #  # # i3-msg "workspace 1; append_layout ~/.config/i3/1new.json"
 #  sleep 0.3
-kitty --hold neofetch &
+# kitty --hold neofetch &
+kitty --hold /home/yucandy16/.local/bin/sakurafetch --fetch --theme nara &
 
 #  # (kitty zsh -c "neofetch" &)
 #
@@ -25,9 +26,10 @@ kitty --hold neofetch &
 #  # ranger &
 #  flatpak run com.discordapp.Discord &
 #  obsidian &
-#  i3-msg restart
+# i3-msg restart
 
 sleep 3
+~/.config/i3/anti-steal-focus.py &
 ~/scripts/change_wallpaper.sh &
 ~/scripts/temp_control.sh &
 ~/.local/share/zen/zen &
