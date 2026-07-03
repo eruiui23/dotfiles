@@ -23,7 +23,7 @@ set $ws13 "13"
 client.focused          #14282f #14282f #e8e8e8 #14282f #14282f
 client.unfocused       #14282f #222222 #676767 #14282f #14282f
 client.focused_inactive #14282f #14282f #676767 #14282f #14282f 
-hide_edge_borders smart 
+# hide_edge_borders smart 
 
 #-------------------------------------- i3
 # Use Mouse+$mod to drag floating windows to their wanted position
