@@ -20,6 +20,7 @@ set $ws13 "13"
 
 #-------------------------------------- Color
 # client.focused          #14282f #14282f #e8e8e8 #2cdeb4 #347568
+# client.focused          #14282f #14282f #e8e8e8 #14282f #14282f
 client.focused          #14282f #14282f #e8e8e8 #14282f #14282f
 client.unfocused       #14282f #222222 #676767 #14282f #14282f
 client.focused_inactive #14282f #14282f #676767 #14282f #14282f 
@@ -57,7 +58,7 @@ exec_always --no-startup-id nitrogen --restore &
 exec_always --no-startup-id libinput-gestures-setup start &
 # exec_always --no-startup-id i3flow &
 # ----------------------------------------- Startup
-exec --no-startup-id ~/.config/i3/anti-steal-focus.py
+# exec --no-startup-id ~/.config/i3/anti-steal-focus.py
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xsetroot -cursor_name left_ptr
 exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l --nofork

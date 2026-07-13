@@ -21,7 +21,7 @@ i3.on("window::focus", revert_focus)
 
 # Jalankan timer di background buat restart i3wm dan matiin script setelah 15 detik
 def stop_script():
-    time.sleep(20)
+    time.sleep(10)
     
     # Trigger restart i3wm agar membaca ulang config asli tanpa interupsi script lagi
     os.system("i3-msg restart")
