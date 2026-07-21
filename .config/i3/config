@@ -2,6 +2,7 @@
 set $mod Mod4
 include ~/.config/i3/app.conf
 include ~/.config/i3/binding.conf
+include ~/.config/i3/dynamic.conf
 
 set $ws1 "1"
 set $ws2 "2"
@@ -30,8 +31,8 @@ client.focused_inactive #14282f #14282f #676767 #14282f #14282f
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 focus_follows_mouse no
-for_window [urgent="latest"] focus
-focus_on_window_activation focus
+# for_window [urgent="latest"] focus
+# focus_on_window_activation focus
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
@@ -57,6 +58,7 @@ exec_always xrdb -merge ~/.Xresources
 # exec_always --no-startup-id nitrogen --restore &
 exec_always --no-startup-id feh --bg-fill /home/yucandy16/Pictures/Wallpaper/107194880_p0.jpg
 exec_always --no-startup-id libinput-gestures-setup start &
+exec_always --no-startup-id ~/scripts/reload.sh &
 # exec_always --no-startup-id i3flow &
 # ----------------------------------------- Startup
 # exec --no-startup-id ~/.config/i3/anti-steal-focus.py
