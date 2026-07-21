@@ -54,7 +54,8 @@ exec_always --no-startup-id picom -b
 exec_always  --no-startup-id ~/scripts/launch-polybar.sh 
 exec_always --no-startup-id sleep 0.5 && ~/scripts/change_wallpaper.sh
 exec_always xrdb -merge ~/.Xresources
-exec_always --no-startup-id nitrogen --restore &
+# exec_always --no-startup-id nitrogen --restore &
+exec_always --no-startup-id feh --bg-fill /home/yucandy16/Pictures/Wallpaper/107194880_p0.jpg
 exec_always --no-startup-id libinput-gestures-setup start &
 # exec_always --no-startup-id i3flow &
 # ----------------------------------------- Startup
