@@ -1,6 +1,6 @@
 # A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
-"$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
+# "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
 [mgr]
 
@@ -372,3 +372,31 @@ keymap = [
 prepend_keymap = [
     { on = [ "T" ], run = "shell '$SHELL'", desc = "Open terminal shell in current directory" }
 ]
+
+[[mgr.prepend_keymap]]
+on   = [ "<C-d>" ]
+run  = "shell -- ripdrag %s -x 2>/dev/null &"
+desc = "Drag selected files to GUI apps"
+
+# [[mgr.prepend_keymap]]
+# on   = [ "<C-d>" ]
+# run  = "plugin drag"
+# desc = "Drag files with ripdrag"
+
+# [[mgr.prepend_keymap]]
+# on   = [ "<C-d>" ]
+# run  = "shell -- kitty +kitten dnd %s 2>/dev/null &"
+# desc = "Drag selected files with Kitty's native DnD"
+# 1. Copy IMAGE CONTENT to clipboard (Ctrl + V directly pastes the image into Discord/Browsers)
+
+# Sync standard Yazi yanks (y) with system clipboard
+[[mgr.prepend_keymap]]
+on   = [ "y" ]
+run  = [ "yank", 'plugin clipboard -- --action=copy' ]
+desc = "Yank selected files to system clipboard"
+
+# Paste files from system clipboard into Yazi
+[[mgr.prepend_keymap]]
+on   = [ "<C-p>" ]
+run  = [ 'plugin clipboard -- --action=paste' ]
+desc = "Paste system clipboard files"

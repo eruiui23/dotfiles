@@ -1,0 +1,12 @@
+[[plugin.deps]]
+use = "Joao-Queiroga/drag"
+rev = "3dff129"
+hash = "4e3f1669b6454a80fdc61b2b4f9305b0"
+
+[[plugin.deps]]
+use = "XYenon/clipboard"
+rev = "d4d19ea"
+hash = "2cfc56d62f9ca0c62ce356e4364c3d89"
+
+[flavor]
+deps = []
