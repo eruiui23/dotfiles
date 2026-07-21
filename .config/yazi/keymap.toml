@@ -366,3 +366,9 @@ keymap = [
 	# Filtering
 	{ on = "f", run = "filter", desc = "Filter help items" },
 ]
+
+
+[manager]
+prepend_keymap = [
+    { on = [ "T" ], run = "shell '$SHELL'", desc = "Open terminal shell in current directory" }
+]

@@ -7,7 +7,7 @@
 # kitty --hold neofetch &
 kitty --hold /home/yucandy16/.local/bin/sakurafetch --fetch --theme nara &
 # kitty --start-as fullscreen --hold /home/yucandy16/.local/bin/sakurafetch --fetch --theme nara &
-
+~/scripts/dualmonitor-xiaomi.sh
 #  # (kitty zsh -c "neofetch" &)
 #
 #  # sleep 0.3
@@ -32,6 +32,7 @@ kitty --hold /home/yucandy16/.local/bin/sakurafetch --fetch --theme nara &
 sleep 3
 # ~/.config/i3/anti-steal-focus.py &
 ~/scripts/change_wallpaper.sh &
+
 ~/scripts/temp_control.sh &
 ~/.local/share/zen/zen &
 sleep 1
