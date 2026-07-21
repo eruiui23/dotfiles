@@ -33,11 +33,11 @@ return {
       Cursor = { fg = "#262626", bg = "#17c29d" },
       CursorLineNr = { fg = "#4dd4ae", bold = true },
       LineNr = { fg = "#5b5959" },
-      Visual = { bg = "#3d484d" },
+      Visual = { bg = "#325e94" },
 
       -- Set comment color using a Hex color code
-      Comment = { fg = "#c47e45", italic = true },
-      ["@comment"] = { fg = "#c47e45", italic = true },
+      -- Comment = { fg = "#c47e45", italic = true },
+      -- ["@comment"] = { fg = "#c47e45", italic = true },
 
       Keyword = { fg = "#FE7171" },
       ["@keyword"] = { fg = "#FE7171" },
