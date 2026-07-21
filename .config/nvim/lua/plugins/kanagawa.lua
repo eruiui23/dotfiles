@@ -17,10 +17,10 @@ return {
       },
     },
   },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "kanagawa",
-    },
-  },
+  -- {
+  --   "LazyVim/LazyVim",
+  --   opts = {
+  --     colorscheme = "kanagawa",
+  --   },
+  -- },
 }
