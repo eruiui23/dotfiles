@@ -4,6 +4,8 @@
 #
 kitty --hold /home/yucandy16/.local/bin/sakurafetch --fetch --theme nara &
 
+# kitty tmux new-session -s 0 "/home/yucandy16/.local/bin/sakurafetch --fetch --theme nara; exec \$SHELL" &
+
 #  # (kitty zsh -c "neofetch" &)
 #
 #  # sleep 0.3

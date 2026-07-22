@@ -157,6 +157,11 @@ npm() { lazy_nvm; npm "$@"; }
 npx() { lazy_nvm; npx "$@"; }
 nvm() { lazy_nvm; nvm "$@"; }
 
+# Automatically open or attach to tmux
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ -z "$TMUX" ]]; then
+    tmux attach -t 1 || tmux new-session -s 1 
+fi
+
 export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
 export __GL_SHADER_DISK_CACHE_SIZE=10737418240
 

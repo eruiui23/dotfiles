@@ -373,10 +373,10 @@ prepend_keymap = [
     { on = [ "T" ], run = "shell '$SHELL'", desc = "Open terminal shell in current directory" }
 ]
 
-[[mgr.prepend_keymap]]
-on   = [ "<C-d>" ]
-run  = "shell -- ripdrag %s -x 2>/dev/null &"
-desc = "Drag selected files to GUI apps"
+# [[mgr.prepend_keymap]]
+# on   = [ "<C-d>" ]
+# run  = "shell -- ripdrag %s -x 2>/dev/null &"
+# desc = "Drag selected files to GUI apps"
 
 # [[mgr.prepend_keymap]]
 # on   = [ "<C-d>" ]
