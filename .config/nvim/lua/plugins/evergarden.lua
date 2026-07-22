@@ -8,7 +8,7 @@ return {
       accent = "green",
     },
     editor = {
-      transparent_background = true,
+      transparent_background = false,
       override_terminal = true,
       sign = { color = "none" },
       float = {
@@ -87,6 +87,13 @@ return {
       -- Standard Vim tabline fallback
       TabLine = { fg = "#70ded5" },
       TabLineSel = { fg = "#70ded5", bold = true },
+
+      -- Lualine Mode Badges (Section A)
+      lualine_a_normal = { bg = "#2ed1ab", fg = "#14282f", bold = true }, -- Normal mode (e.g., #2ed1ab teal)
+      lualine_a_insert = { bg = "#75abf1", fg = "#14282f", bold = true }, -- Insert mode
+      lualine_a_visual = { bg = "#f07178", fg = "#14282f", bold = true }, -- Visual mode
+      lualine_a_command = { bg = "#e8e791", fg = "#14282f", bold = true }, -- Command mode
+      lualine_a_replace = { bg = "#fe7171", fg = "#14282f", bold = true }, -- Replace mode
     },
     color_overrides = {},
   },
