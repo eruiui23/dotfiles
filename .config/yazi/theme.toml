@@ -1,0 +1,47 @@
+# [flavor]
+# dark = "synthwave84"
+
+# [mgr]
+# cwd = { fg = "#2ed1ab" }
+#
+# find_keyword  = { fg = "#2ed1ab", bg = "#262335", bold = true, italic = true }
+# find_position = { fg = "#2ed1ab", bg = "#262335", bold = true }
+#
+# # Marker
+# marker_marked   = { fg = "#2ed1ab", bg = "#2ed1ab" }
+# marker_selected = { fg = "#ff7edb", bg = "#ff7edb" }
+# marker_copied   = { fg = "#72f1b8", bg = "#72f1b8" }
+# marker_cut      = { fg = "#fe4450", bg = "#fe4450" }
+#
+# # Count
+# count_selected = { fg = "#ff7edb", underline = true }
+# count_copied   = { fg = "#72f1b8", underline = true }
+# count_cut      = { fg = "#fe4450", underline = true }
+#
+# # Border
+# border_symbol = "│"
+# border_style  = { fg = "#2ed1ab" }
+#
+# [tabs]
+# active   = { fg = "#262335", bg = "#2ed1ab", bold = true }
+# inactive = { fg = "#2ed1ab", bg = "#262335" }
+#
+# [filetype]
+#
+# # rules = [
+# # 	# Image
+# # 	{ mime = "image/*", fg = "#36f9f6" },
+# # 	# Media
+# # 	{ mime = "{audio,video}/*", fg = "#72f1b8" },
+# # 	# Document
+# # 	{ mime = "application/{pdf,doc,rtf}", fg = "#fede5d" },
+# # 	{ url = "*.{txt,csv,*json*,toml,yml,yaml,xml,html,ini,cfg,conf,pdf,doc,docx,xls,xlsx,ppt,pptx}", fg = "#fede5d" },
+# # 	# Archive
+# # 	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#ff7edb" },
+# # 	{ url = "*.img", fg = "#ff7edb" },
+# # 	# Visual file system 
+# # 	{ mime = "vfs/{absent,stale}", fg = "#2ed1ab" },
+# # 	# Fallback
+# # 	{ url = "*" },
+# # 	{ url = "*/", fg = "#2ed1ab" },
+# # ]

@@ -87,7 +87,7 @@ exec --no-startup-id systemctl --user start opentabletdriver
 
 # ---------------------------------------- Input and Custom Keybind
 # set capslock to ctrl
-exec --no-startup-id setxkbmap -option ctrl:nocaps
+exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 
 # set right shift to meta/super
 exec_always --no-startup-id xmodmap -e "keycode 62 = Super_R" -e "remove shift = Shift_R" -e "add mod4 = Super_R"
