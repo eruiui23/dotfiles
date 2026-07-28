@@ -157,9 +157,18 @@ npm() { lazy_nvm; npm "$@"; }
 npx() { lazy_nvm; npx "$@"; }
 nvm() { lazy_nvm; nvm "$@"; }
 
-# Automatically open or attach to tmux
+# # Automatically open or attach to tmux
+# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ -z "$TMUX" ]]; then
+#     tmux attach -t 1 || tmux new-session -s 1 
+# fi
+
+# Automatically join session '1' and open a new independent window
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ -z "$TMUX" ]]; then
-    tmux attach -t 1 || tmux new-session -s 1 
+    if tmux has-session -t 1 2>/dev/null; then
+        exec tmux new-session -t 1 \; new-window
+    else
+        exec tmux new-session -s 1
+    fi
 fi
 
 export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
