@@ -163,13 +163,13 @@ nvm() { lazy_nvm; nvm "$@"; }
 # fi
 
 # Automatically join session '1' and open a new independent window
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ -z "$TMUX" ]]; then
-    if tmux has-session -t 1 2>/dev/null; then
-        exec tmux new-session -t 1 \; new-window
-    else
-        exec tmux new-session -s 1
-    fi
-fi
+# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ -z "$TMUX" ]]; then
+#     if tmux has-session -t 1 2>/dev/null; then
+#         exec tmux new-session -t 1 \; new-window
+#     else
+#         exec tmux new-session -s 1
+#     fi
+# fi
 
 export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
 export __GL_SHADER_DISK_CACHE_SIZE=10737418240
