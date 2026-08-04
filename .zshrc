@@ -158,9 +158,9 @@ npx() { lazy_nvm; npx "$@"; }
 nvm() { lazy_nvm; nvm "$@"; }
 
 # # Automatically open or attach to tmux
-# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ -z "$TMUX" ]]; then
-#     tmux attach -t 1 || tmux new-session -s 1 
-# fi
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ -z "$TMUX" ]]; then
+    tmux attach -t 0 || tmux new-session -s 0 
+fi
 
 # Automatically join session '1' and open a new independent window
 # if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ -z "$TMUX" ]]; then
