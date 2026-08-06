@@ -9,6 +9,11 @@ vim.keymap.set("n", "<A-l>", ":bnext<CR>", { silent = true })
 vim.keymap.del("n", "H")
 vim.keymap.del("n", "L")
 
+vim.keymap.set("n", "<leader>bh", "<cmd>split<cr>", { desc = "Split Window Horizontally" })
+vim.keymap.set("n", "<leader>bv", "<cmd>vsplit<cr>", { desc = "Split Window Vertically" })
+
+
+
 local set = vim.keymap.set
 local del = vim.keymap.del
 
