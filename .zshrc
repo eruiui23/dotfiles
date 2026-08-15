@@ -183,9 +183,9 @@ nvm() { lazy_nvm; nvm "$@"; }
 # fi
 
 # new session
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ -z "$TMUX" ]]; then
-    tmux
-fi
+# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ -z "$TMUX" ]]; then
+#     tmux
+# fi
 
 export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
 export __GL_SHADER_DISK_CACHE_SIZE=10737418240
