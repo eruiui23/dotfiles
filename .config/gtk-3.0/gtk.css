@@ -1,0 +1,110 @@
+@import "colors.css";
+
+/* 1. Global Window & Container Backgrounds */
+.nemo-window,
+.nemo-window-pane,
+.nemo-window scrolledwindow,
+.nemo-window viewport,
+/* .nemo-window .view, */
+.nemo-window treeview,
+.nemo-window iconview {
+  background-color: #273032;
+  color: #ffffff;
+}
+
+/* 2. Top Header, Toolbar & Action Bar */
+.nemo-window headerbar,
+.nemo-window toolbar,
+.nemo-window toolbar.primary-toolbar {
+  background-color: #273032;
+  color: #ffffff;
+  /* border-bottom: 1px solid #1a2022; */
+  box-shadow: none;
+}
+
+/* 3. Sidebar (Places, Bookmarks, Devices) */
+.nemo-window .sidebar,
+.nemo-window .sidebar .view,
+.nemo-window .sidebar viewport,
+.nemo-places-sidebar {
+  background-color: ##273032;
+  color: #ffffff;
+}
+
+/* 4. Breadcrumbs / Pathbar Buttons */
+.nemo-window .nemo-pathbar button {
+  background: #313244;
+  color: #cccccc;
+  border: none;
+  box-shadow: none;
+  /* border-radius: 4px; */
+}
+
+.nemo-window .nemo-pathbar button:hover {
+  background: #3e3f58;
+}
+
+/* 5. Selected Items */
+.nemo-window iconview:selected,
+.nemo-window .view:selected,
+.nemo-window treeview:selected {
+  background-color: #63c7ac;
+  color: #eeee;
+  /* border-radius: 4px; */
+}
+
+.nemo-window treeview:selected {
+  background-color: #343f42;
+  color: #eeee;
+  /* border-radius: 4px; */
+}
+/* 6. Embedded Terminal Pane & Surrounding Box */
+.nemo-window vte-terminal,
+.nemo-window .terminal-screen,
+.nemo-window paned > box {
+  background-color: #273032;
+  color: #cccccc;
+}
+
+/* 7. Pane Dividers / Separators */
+.nemo-window paned > separator {
+  background-color: #1e2527;
+}
+
+/* 8. Statusbar */
+.nemo-window statusbar,
+.nemo-window statusbar frame {
+  background-color: #273032;
+  color: #cccccc;
+  /* border-top: 1px solid #1a2022; */
+}
+/* Column Header Container & Buttons */
+.nemo-window treeview header button,
+.nemo-window treeview header button:backdrop,
+.nemo-window .nemo-window-pane treeview header button {
+  background-color: #273032;   /* Or rgba(39, 48, 50, 0.85) */
+  background-image: none;      /* Removes default GTK gradient/shading */
+  color: #cccccc;
+  border-color: #1e2527;       /* Column separator line color */
+  border-radius: 0px;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+/* Hover state when mouse hovers over a column name */
+.nemo-window treeview header button:hover {
+  background-color: #313d40;
+  color: #ffffff;
+}
+
+/* Active / clicked state (when sorting by a column) */
+.nemo-window treeview header button:active,
+.nemo-window treeview header button:checked {
+  background-color: #1e2527;
+  color: #00bb9c;
+}
+
+/* Sort arrows (up/down triangles) */
+.nemo-window treeview header button arrow {
+  color: #00bb9c;
+}
