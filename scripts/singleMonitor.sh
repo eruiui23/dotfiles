@@ -8,4 +8,5 @@ for i in {1..13}; do
     i3-msg "workspace $i, move workspace to output eDP"
 done
 
+
 i3-msg reload

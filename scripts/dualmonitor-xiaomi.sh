@@ -11,5 +11,6 @@ sleep 1
 # 3. Move all workspaces to the primary monitor (HDMI-0)
 i3-msg -t get_workspaces | jq -r '.[].name' | xargs -I % i3-msg "workspace %; move workspace to output HDMI-0"
 
+feh --bg-fill /home/yucandy16/Pictures/Wallpaper/107194880_p0.jpg
 # 4. Focus back on your preferred starting workspace (optional)
 # i3-msg "workspace 1"
