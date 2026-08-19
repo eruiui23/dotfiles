@@ -296,6 +296,8 @@ border = { fg = "#4dd4ae"}
 playback_progress_bar_unfilled = { bg = "#eeffff" }
 bg = "BrightBlack"
 playback_progress_bar = { bg = "#273032", fg = "#eeffff"}
-# playback_status = { fg = "#eeffff", modifiers = ["Bold"] }
-# playback_track = { fg = "#eeffff", modifiers = ["Bold"] }
-# playback_artists = { fg = "#eeffff", modifiers = ["Bold"] }
+playback_status = { fg = "#eeffff", modifiers = ["Bold"] }
+playback_track = { fg = "#eeffff", modifiers = ["Bold"] }
+playback_artists = { fg = "#eeffff", modifiers = ["Bold"] }
+playback_album = { fg = "#4dd4ae" }
+

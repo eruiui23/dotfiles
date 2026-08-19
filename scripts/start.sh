@@ -9,6 +9,8 @@ sleep 3
 ~/scripts/change_wallpaper.sh &
 
 ~/scripts/temp_control.sh &
+
+~/scripts/dualmonitor-xiaomi.sh &
 # APP Startup
 # ~/.local/share/zen/zen &
 # sleep 1
