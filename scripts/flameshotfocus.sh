@@ -4,17 +4,12 @@
 # PREV_WIN=$(xdotool getactivewindow)
 
 # Jalankan flameshot GUI
-# flameshot gui --clipboard
+flameshot gui 
 
-# Pilih area (drag)
-area=$(slop -f "%wx%h+%x+%y") || exit 1
+## second method
+# area=$(slop -f "%wx%h+%x+%y") || exit 1
+#
+# maim -g "$area" | xclip -selection clipboard -t image/png
+#
+# paplay /usr/share/sounds/freedesktop/stereo/camera-shutter.oga 2>/dev/null &
 
-# Screenshot langsung ke clipboard
-maim -g "$area" | xclip -selection clipboard -t image/png
-
-# Notifikasi kecil
-# notify-send "Screenshot copied to clipboard"
-paplay /usr/share/sounds/freedesktop/stereo/camera-shutter.oga 2>/dev/null &
-
-# Fokuskan kembali window sebelumnya
-# xdotool windowactivate "$PREV_WIN"

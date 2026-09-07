@@ -5,7 +5,7 @@ kitty tmux new-session "/home/yucandy16/.local/bin/sakurafetch --fetch --theme n
 
 sleep 3
 # ~/.config/i3/anti-steal-focus.py &
-~/scripts/unload.sh
+# ~/scripts/unload.sh
 ~/scripts/change_wallpaper.sh &
 
 ~/scripts/temp_control.sh &

@@ -58,7 +58,7 @@ exec_always xrdb -merge ~/.Xresources
 # exec_always --no-startup-id nitrogen --restore &
 exec_always --no-startup-id feh --bg-fill /home/yucandy16/Pictures/Wallpaper/107194880_p0.jpg
 exec_always --no-startup-id libinput-gestures-setup start &
-exec_always --no-startup-id ~/scripts/reload.sh &
+# exec_always --no-startup-id ~/scripts/reload.sh &
 exec_always --no-startup-id ~/scripts/focus_flash.py &
 # exec_always --no-startup-id i3flow &
 # ----------------------------------------- Startup
@@ -92,7 +92,8 @@ exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 
 # set right shift to meta/super
 
-exec_always --no-startup-id xmodmap -e "keycode 62 = Super_R" -e "remove shift = Shift_R" -e "add mod4 = Super_R"
+exec_always --no-startup-id sh -c "sleep 0.3 && xmodmap -e 'remove shift = Shift_R' -e 'keycode 62 = Super_R' -e 'add mod4 = Super_R'"
+
 # set touchpad biar ga kebalik and pointer speed
 exec --no-startup-id xinput set-prop "SYNA2BA6:00 06CB:CE2D Touchpad" "libinput Natural Scrolling Enabled" 1
 exec_always --no-startup-id xinput set-prop "SYNA2BA6:00 06CB:CE2D Touchpad" "libinput Accel Speed" 0.3 
