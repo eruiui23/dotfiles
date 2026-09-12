@@ -1,4 +1,5 @@
 # Variabel
+workspace_layout tabbed
 set $mod Mod4
 include ~/.config/i3/app.conf
 include ~/.config/i3/binding.conf
@@ -41,7 +42,7 @@ tiling_drag modifier titlebar
 #-------------------------------------- Gaps
 # Inner gaps for all windows: space between two adjacent windows (or split containers).
 # gaps outer 8px 
-gaps inner 8px
+# gaps inner 8px
 
 font pango:JetBrains Mono 10
 # font pango:JetBrains Mono 12

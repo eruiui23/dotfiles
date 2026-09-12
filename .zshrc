@@ -213,3 +213,10 @@ esac
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
 
+
+# bun completions
+[ -s "/home/yucandy16/.bun/_bun" ] && source "/home/yucandy16/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
