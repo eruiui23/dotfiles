@@ -161,11 +161,11 @@ nvm() { lazy_nvm; nvm "$@"; }
 #
 # In your ~/.bashrc / ~/.zshrc:
 # Don't auto-launch tmux if running inside Nemo's embedded terminal
-# if [ -z "$TMUX" ] && [[ "$(ps -p $PPID -o comm=)" != "nemo" ]]; then
-#     # Your tmux launch command here
-#     # tmux new-session -A -s main
-#     tmux
-# fi
+if [ -z "$TMUX" ] && [[ "$(ps -p $PPID -o comm=)" != "nemo" ]]; then
+    # Your tmux launch command here
+    # tmux new-session -A -s main
+    tmux a
+fi
 
 
 # # Automatically open or attach to tmux
