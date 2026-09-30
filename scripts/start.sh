@@ -5,20 +5,20 @@ kitty tmux new-session "/home/yucandy16/.local/bin/sakurafetch --fetch --theme n
 
 sleep 3
 # ~/.config/i3/anti-steal-focus.py &
-# ~/scripts/unload.sh
+~/scripts/unload.sh
 ~/scripts/change_wallpaper.sh &
 
 ~/scripts/temp_control.sh &
 
-~/scripts/dualmonitor-xiaomi.sh &
+# ~/scripts/dualmonitor-xiaomi.sh &
 # APP Startup
-# ~/.local/share/zen/zen &
+~/.local/share/zen/zen &
 # sleep 1
-# nemo &
+ nemo &
 # sleep 1
-# spotify &
+spotify &
 # # Flatpaks and others
-# flatpak run com.discordapp.Discord &
+flatpak run com.discordapp.Discord &
 # sleep 1
-# obsidian &
+obsidian &
 # anki &
