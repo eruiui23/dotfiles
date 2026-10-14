@@ -28,7 +28,7 @@ client.focused          #333333 #333333 #e8e8e8 #14282f #14282f
 client.unfocused       #222222 #222222 #676767 #14282f #14282f
 client.focused_inactive #14282f #14282f #676767 #14282f #14282f 
 # hide_edge_borders smart 
-title_align left
+title_align center
 
 #-------------------------------------- i3
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -44,7 +44,7 @@ tiling_drag modifier titlebar
 #-------------------------------------- Gaps
 # Inner gaps for all windows: space between two adjacent windows (or split containers).
 # gaps outer 8px 
-# gaps inner 8px
+gaps inner 8px
 
 font pango:JetBrains Mono ExtraBold 10
 # font pango:JetBrains Mono 12
@@ -54,10 +54,10 @@ font pango:JetBrains Mono ExtraBold 10
 exec --no-startup-id xrandr  --output HDMI-0 --mode 1920x1080 --rate 180.00 --pos 0x0 &
 
 # ----------------------------------------- Restart
-exec_always --no-startup-id picom -b
-exec_always  --no-startup-id ~/scripts/launch-polybar.sh 
-exec_always --no-startup-id sleep 0.5 && ~/scripts/change_wallpaper.sh
-exec_always xrdb -merge ~/.Xresources
+exec_always --no-startup-id picom -b &
+exec_always  --no-startup-id ~/scripts/launch-polybar.sh &
+exec_always --no-startup-id sleep 0.5 && ~/scripts/change_wallpaper.sh &
+exec_always xrdb -merge ~/.Xresources &
 # exec_always --no-startup-id nitrogen --restore &
 exec_always --no-startup-id feh --bg-fill /home/yucandy16/Pictures/Wallpaper/107194880_p0.jpg
 exec_always --no-startup-id libinput-gestures-setup start &
@@ -66,11 +66,11 @@ exec_always --no-startup-id ~/scripts/focus_flash.py &
 # exec_always --no-startup-id i3flow &
 # ----------------------------------------- Startup
 # exec --no-startup-id ~/.config/i3/anti-steal-focus.py
-exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xsetroot -cursor_name left_ptr
-exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l --nofork
-exec --no-startup-id nm-applet
-exec --no-startup-id ffplay -nodisp -autoexit Music/chisa.mp3
+exec --no-startup-id dex --autostart --environment i3 &
+exec --no-startup-id xsetroot -cursor_name left_ptr &
+exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l --nofork &
+exec --no-startup-id nm-applet &
+exec --no-startup-id ffplay -nodisp -autoexit Music/chisa.mp3 &
 exec --no-startup-id eww daemon &
 exec --no-startup-id ~/scripts/start.sh &
 exec --no-startup-id parcellite &
@@ -79,30 +79,30 @@ exec --no-startup-id caffeine &
 exec --no-startup-id syncthing &
 exec --no-startup-id legionaura apply &
 # login buat timeshift dan teman teman
-exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id xapp-status-applet
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+exec --no-startup-id xapp-status-applet &
 # Start Fcitx japanese
-exec --no-startup-id fcitx5 -d
-exec --no-startup-id i3-back 
-exec --no-startup-id systemctl --user start opentabletdriver  
+exec --no-startup-id fcitx5 -d &
+exec --no-startup-id i3-back &
+exec --no-startup-id systemctl --user start opentabletdriver  &
 
 # ---------------------------------------- Autotiling
 # exec_always --no-startup-id /home/yucandy16/i3-alternating-layout/alternating_layouts.py
 
 # ---------------------------------------- Input and Custom Keybind
 # set capslock to ctrl
-exec_always --no-startup-id setxkbmap -option ctrl:nocaps
+exec_always --no-startup-id setxkbmap -option ctrl:nocaps &
 
 # set right shift to meta/super
-exec_always --no-startup-id sh -c "sleep 0.3 && xmodmap -e 'remove Control = Control_R' -e 'keycode 105 = Super_R' -e 'add mod4 = Super_R'"
+exec_always --no-startup-id sh -c "sleep 0.3 && xmodmap -e 'remove Control = Control_R' -e 'keycode 105 = Super_R' -e 'add mod4 = Super_R'" &
 # exec_always --no-startup-id sh -c "sleep 0.3 && xmodmap -e 'remove shift = Shift_R' -e 'keycode 62 = Super_R' -e 'add mod4 = Super_R'"
 
 # set touchpad biar ga kebalik and pointer speed
-exec --no-startup-id xinput set-prop "SYNA2BA6:00 06CB:CE2D Touchpad" "libinput Natural Scrolling Enabled" 1
-exec_always --no-startup-id xinput set-prop "SYNA2BA6:00 06CB:CE2D Touchpad" "libinput Accel Speed" 0.3 
+exec --no-startup-id xinput set-prop "SYNA2BA6:00 06CB:CE2D Touchpad" "libinput Natural Scrolling Enabled" 1 &
+exec_always --no-startup-id xinput set-prop "SYNA2BA6:00 06CB:CE2D Touchpad" "libinput Accel Speed" 0.3 &
 
 # set keyboard repeat delay and rate
-exec_always --no-startup-id xset r rate 250 40
+exec_always --no-startup-id xset r rate 250 40 &
 
 
 # ----------------------------------------- Other info

@@ -7,9 +7,8 @@ sleep 3
 # ~/.config/i3/anti-steal-focus.py &
 ~/scripts/unload.sh
 ~/scripts/change_wallpaper.sh &
-
 ~/scripts/temp_control.sh &
-
+tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh &
 # ~/scripts/dualmonitor-xiaomi.sh &
 # APP Startup
 ~/.local/share/zen/zen &

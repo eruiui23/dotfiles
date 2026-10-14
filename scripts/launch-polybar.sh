@@ -23,7 +23,8 @@ export PATH="$HOME/.local/bin:$PATH"
 
 
 # SINGLE MONITOR 
-polybar bar >/dev/null 2>&1 &
-polybar bar2 >/dev/null 2>&1 &
+# polybar bar >/dev/null 2>&1 &
+# polybar bar2 >/dev/null 2>&1 &
+polybar -c ~/.config/polybar/config2.ini --reload bar2 >/dev/null 2>&1 &
 
 echo "Bars launched..."
