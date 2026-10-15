@@ -19,5 +19,6 @@ to backup :
 <img width="1920" height="1080" alt="2026-09-08_0755s32" src="https://github.com/user-attachments/assets/3ebdccd9-cbd3-4e95-97e5-7c632df8f786" />
 
 ### 15/10/26
-<img width="1920" height="1080" alt="2026-10-15_2117s14" src="https://github.com/user-attachments/assets/791ed31c-9425-4a3e-bb49-44c9e9a25e33" />
+<img width="1920" height="1080" alt="2026-10-15_2224s37" src="https://github.com/user-attachments/assets/d76a9932-f0f3-4833-b2c1-664921640abe" />
+
 
