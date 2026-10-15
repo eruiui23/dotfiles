@@ -15,5 +15,9 @@ to backup :
 ### 15/02/26
 ![2026-02-15_0122s32](https://github.com/user-attachments/assets/4cb7f7a6-7d32-4be6-8421-62c696f7d959)
 
-### 08/09/26 compact view
+### 08/09/26 
 <img width="1920" height="1080" alt="2026-09-08_0755s32" src="https://github.com/user-attachments/assets/3ebdccd9-cbd3-4e95-97e5-7c632df8f786" />
+
+### 15/10/26
+<img width="1920" height="1080" alt="2026-10-15_2117s14" src="https://github.com/user-attachments/assets/791ed31c-9425-4a3e-bb49-44c9e9a25e33" />
+
