@@ -46,8 +46,8 @@ tiling_drag modifier titlebar
 # gaps outer 8px 
 gaps inner 8px
 
-font pango:JetBrains Mono ExtraBold 10
-# font pango:JetBrains Mono 12
+font pango:Noto Sans Mono CJK JP 10
+# font pango:JetBrains Mono ExtraBold 10
 
 # -------------------------------------- Set refresh rate sec monitor
 # exec_always --no-startup-id xrandr  --output HDMI-1-0 --mode 1920x1080 --rate 180.00 
@@ -63,6 +63,7 @@ exec_always --no-startup-id nitrogen --restore &
 exec_always --no-startup-id libinput-gestures-setup start &
 exec_always --no-startup-id ~/scripts/reload.sh &
 exec_always --no-startup-id ~/scripts/focus_flash.py &
+exec_always --no-startup-id ~/scripts/floating-border.py &
 # exec_always --no-startup-id i3flow &
 # ----------------------------------------- Startup
 # exec --no-startup-id ~/.config/i3/anti-steal-focus.py
@@ -73,7 +74,6 @@ exec --no-startup-id nm-applet &
 exec --no-startup-id ffplay -nodisp -autoexit Music/chisa.mp3 &
 exec --no-startup-id eww daemon &
 exec --no-startup-id ~/scripts/start.sh &
-exec --no-startup-id ~/scripts/floating-border.py &
 exec --no-startup-id parcellite &
 exec --no-startup-id flameshot &
 exec --no-startup-id caffeine &

@@ -24,9 +24,9 @@ notification-center:
   ### Margin at the top/right/bottom of the notification center in
   ### pixels. This can be used to avoid overlap between the notification
   ### center and bars such as polybar or i3blocks.
-  margin-top: 50
+  margin-top: 20
   margin-right: 18 
-  margin-bottom: 250
+  margin-bottom: 50
 
   ### Width of the notification center in pixels.
   width: 500
@@ -56,7 +56,7 @@ notification-center:
   buttons:
     ### Numbers of buttons that can be drawn on a row of the notification
     ### center.
-    buttons-per-row: 1
+    buttons-per-row: 3
 
     ### Height of buttons in the notification center (in pixels).    
     buttons-height: 30
