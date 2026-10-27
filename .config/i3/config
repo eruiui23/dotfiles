@@ -1,7 +1,7 @@
 # Variabel
 workspace_layout tabbed
 set $mod Mod4
-include ~/.config/i3/app.conf
+include ~/.config/i3/window.conf
 include ~/.config/i3/binding.conf
 include ~/.config/i3/dynamic.conf
 
@@ -25,8 +25,8 @@ set $ws13 "13"
 # client.focused          #14282f #14282f #e8e8e8 #14282f #14282f
 # client.focused          #d08a08 #d08a08 #e8e8e8 #14282f #14282f
 client.focused          #333333 #333333 #e8e8e8 #333333 #333333
-client.unfocused       #222222 #222222 #676767 #222222 #222222
-client.focused_inactive #222222 #222222 #676767 #222222 #222222 
+client.unfocused       #222222 #222222 #474747 #222222 #222222
+client.focused_inactive #222222 #222222 #474747 #222222 #222222 
 # hide_edge_borders smart 
 title_align center
 
