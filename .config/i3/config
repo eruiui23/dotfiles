@@ -94,8 +94,8 @@ exec --no-startup-id systemctl --user start opentabletdriver  &
 # set capslock to ctrl
 exec_always --no-startup-id setxkbmap -option ctrl:nocaps &
 
-# set right shift to meta/super
-exec_always --no-startup-id sh -c "sleep 0.3 && xmodmap -e 'remove Control = Control_R' -e 'keycode 105 = Super_R' -e 'add mod4 = Super_R'" &
+# set right shift to meta/super (DEPRECATED, sekarang pake keyd)
+# exec_always --no-startup-id sh -c "sleep 0.3 && xmodmap -e 'remove Control = Control_R' -e 'keycode 105 = Super_R' -e 'add mod4 = Super_R'" &
 # exec_always --no-startup-id sh -c "sleep 0.3 && xmodmap -e 'remove shift = Shift_R' -e 'keycode 62 = Super_R' -e 'add mod4 = Super_R'"
 
 # set touchpad biar ga kebalik and pointer speed

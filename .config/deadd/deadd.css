@@ -1,5 +1,9 @@
 
 /* Notification center */
+* {
+    font-family: "Noto Sans Mono CJK JP";
+    font-size: 13px;
+}
 
 .blurredBG, #main_window, .blurredBG.low, .blurredBG.normal {
     background: rgba(0,0,0, 0.7);
