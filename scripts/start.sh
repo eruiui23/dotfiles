@@ -20,4 +20,5 @@ spotify &
 flatpak run com.discordapp.Discord &
 # sleep 1
 obsidian &
+zapfast &
 # anki &
